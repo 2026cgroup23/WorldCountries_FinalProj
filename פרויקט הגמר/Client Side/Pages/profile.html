@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>הפרופיל שלי</title>
+
+    <link rel="stylesheet"
+          href="../Styles/profile.css?v=15">
+
+    <link rel="icon" type="image/png" href="/Assets/favicon.png">
+
+</head>
+
+<body>
+    <div class="background-overlay"></div>
+
+    <main class="profile-card">
+
+        <header class="profile-header">
+            <div class="avatar"
+                 id="avatar">
+                U
+            </div>
+
+            <h1 id="pageTitle">
+                הפרופיל שלי
+            </h1>
+
+            <p id="pageSubtitle">
+                ניהול החשבון האישי
+            </p>
+
+            <nav class="profile-navigation"
+                 aria-label="ניווט בפרופיל">
+
+                <a href="profile.html?mode=view"
+                   id="viewProfileTab">
+                    הפרופיל שלי
+                </a>
+
+                <a href="profile.html?mode=edit"
+                   id="editProfileTab">
+                    עריכת פרטים
+                </a>
+
+                <a href="profile.html?mode=preferences"
+                   id="preferencesTab">
+                    ההעדפות שלי
+                </a>
+
+            </nav>
+        </header>
+
+        <!-- פרטי החשבון -->
+        <section class="section account-section"
+                 id="accountSection">
+
+            <h2>פרטי החשבון</h2>
+
+            <div class="info-row">
+                <span>שם מלא</span>
+
+                <strong id="userName">
+                    טוען...
+                </strong>
+            </div>
+
+            <div class="info-row">
+                <span>אימייל</span>
+
+                <strong id="userEmail">
+                    טוען...
+                </strong>
+            </div>
+
+            <div class="info-row">
+                <span>תפקיד</span>
+
+                <strong id="userRole">
+                    טוען...
+                </strong>
+            </div>
+
+            <div class="info-row">
+                <span>סטטוס חשבון</span>
+
+                <strong id="userStatus">
+                    טוען...
+                </strong>
+            </div>
+
+            <div class="info-row">
+                <span>הרשאת שיתוף</span>
+
+                <strong id="userSharePermission">
+                    טוען...
+                </strong>
+            </div>
+
+            <div class="info-row">
+                <span>כניסה אחרונה</span>
+
+                <strong id="lastLogin">
+                    טוען...
+                </strong>
+            </div>
+
+        </section>
+
+        <!-- עריכת פרטים -->
+        <section class="section"
+                 id="editSection"
+                 hidden>
+
+            <h2>עריכת פרטים</h2>
+
+            <label for="txtFullName">
+                שם מלא
+            </label>
+
+            <input type="text"
+                   id="txtFullName"
+                   maxlength="100"
+                   autocomplete="name"
+                   placeholder="הכנס שם מלא">
+
+            <label for="txtEmail">
+                אימייל
+            </label>
+
+            <input type="email"
+                   id="txtEmail"
+                   maxlength="150"
+                   autocomplete="email"
+                   placeholder="example@email.com">
+
+            <div id="profileUpdateMessage"
+                 class="profile-message"
+                 role="status"
+                 aria-live="polite">
+            </div>
+
+            <button type="button"
+                    id="btnSave"
+                    class="main-action-button">
+                שמור שינויים
+            </button>
+
+        </section>
+
+        <!-- שינוי סיסמה -->
+        <section class="section"
+                 id="passwordSection"
+                 hidden>
+
+            <h2>שינוי סיסמה</h2>
+
+            <label for="txtPassword">
+                סיסמה חדשה
+            </label>
+
+            <div class="password-wrapper">
+
+                <input type="password"
+                       id="txtPassword"
+                       maxlength="100"
+                       placeholder="לפחות 8 תווים, אות גדולה ואות קטנה"
+                       autocomplete="new-password">
+
+                <button type="button"
+                        id="toggleNewPassword"
+                        class="toggle-password"
+                        aria-label="הצג או הסתר את הסיסמה החדשה">
+                    הצג
+                </button>
+
+            </div>
+
+            <label for="txtConfirmPassword">
+                אימות סיסמה
+            </label>
+
+            <div class="password-wrapper confirm-password-wrapper">
+
+                <input type="password"
+                       id="txtConfirmPassword"
+                       maxlength="100"
+                       placeholder="הכנס שוב את הסיסמה החדשה"
+                       autocomplete="new-password">
+
+            </div>
+
+            <div id="passwordUpdateMessage"
+                 class="profile-message"
+                 role="status"
+                 aria-live="polite">
+            </div>
+
+            <button type="button"
+                    id="btnPassword"
+                    class="main-action-button">
+                שנה סיסמה
+            </button>
+
+        </section>
+
+        <!-- העדפות אישיות -->
+        <section class="preferences-container"
+                 id="preferencesSection"
+                 hidden>
+
+            <section class="section preference-section">
+
+                <div class="preference-header">
+
+                    <div>
+                        <span class="preference-icon">
+                            🌎
+                        </span>
+
+                        <div>
+                            <h2>יבשות מועדפות</h2>
+
+                            <p>
+                                בחר יבשות שמעניינות אותך ושבהן תרצה
+                                לגלות מדינות חדשות.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="continentsLoading"
+                     class="preference-loading">
+                    טוען יבשות...
+                </div>
+
+                <div id="continentsList"
+                     class="continents-grid">
+                </div>
+
+                <div id="continentsMessage"
+                     class="profile-message"
+                     role="status"
+                     aria-live="polite">
+                </div>
+
+            </section>
+
+            <section class="section preference-section">
+
+                <div class="preference-header">
+
+                    <div>
+                        <span class="preference-icon">
+                            🗣️
+                        </span>
+
+                        <div>
+                            <h2>השפות שלי</h2>
+
+                            <p>
+                                הוסף את השפות שאתה דובר ובחר את רמת
+                                השליטה שלך בכל שפה.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="language-form">
+
+                    <div class="language-field">
+
+                        <label for="languageSelect">
+                            שפה
+                        </label>
+
+                        <select id="languageSelect">
+                            <option value="">
+                                בחר שפה
+                            </option>
+                        </select>
+
+                    </div>
+
+                    <div class="language-field">
+
+                        <label for="languageLevelSelect">
+                            רמת שליטה
+                        </label>
+
+                        <select id="languageLevelSelect">
+                            <option value="">
+                                בחר רמה
+                            </option>
+                        </select>
+
+                    </div>
+
+                    <button type="button"
+                            id="addLanguageButton"
+                            class="main-action-button language-add-button">
+                        הוסף שפה
+                    </button>
+
+                </div>
+
+                <div id="languagesMessage"
+                     class="profile-message"
+                     role="status"
+                     aria-live="polite">
+                </div>
+
+                <div class="selected-languages-header">
+
+                    <h3>
+                        השפות שבחרת
+                    </h3>
+
+                    <span id="languagesCount"
+                          class="preference-count">
+                        0 שפות
+                    </span>
+
+                </div>
+
+                <div id="userLanguagesLoading"
+                     class="preference-loading">
+                    טוען שפות...
+                </div>
+
+                <div id="userLanguagesList"
+                     class="user-languages-list">
+                </div>
+
+                <div id="languagesEmptyState"
+                     class="preferences-empty-state"
+                     hidden>
+
+                    <span>
+                        💬
+                    </span>
+
+                    <h3>
+                        עדיין לא הוספת שפות
+                    </h3>
+
+                    <p>
+                        בחר שפה ורמת שליטה ולאחר מכן לחץ על
+                        „הוסף שפה”.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </section>
+
+        <div class="buttons">
+
+            <button type="button"
+                    id="btnHome">
+                חזרה לדף הראשי
+            </button>
+
+            <button type="button"
+                    id="btnLogout">
+                התנתקות
+            </button>
+
+        </div>
+
+    </main>
+
+    <script src="../JS/profile.js?v=7"></script>
+</body>
+
+</html>

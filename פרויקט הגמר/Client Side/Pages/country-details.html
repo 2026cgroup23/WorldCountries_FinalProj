@@ -1,0 +1,763 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>פרטי מדינה</title>
+
+    <link rel="stylesheet"
+          href="../Styles/country-details.css?v=7">
+
+    <link rel="icon" type="image/png" href="/Assets/favicon.png">
+
+</head>
+
+<body>
+
+    <header class="main-header">
+
+        <a href="index.html"
+           class="site-brand">
+
+            <span class="brand-icon">
+                🌍
+            </span>
+
+            <span class="brand-text">
+
+                <strong>
+                    World Countries
+                </strong>
+
+                <small>
+                    Explore · Learn · Connect
+                </small>
+
+            </span>
+
+        </a>
+
+        <nav class="main-navigation"
+             id="mainNavigation"
+             aria-label="ניווט ראשי">
+
+            <a href="index.html">
+                דף הבית
+            </a>
+
+            <a href="countries.html"
+               class="active">
+                מדינות
+            </a>
+
+            <a href="my-lists.html">
+                הרשימות שלי
+            </a>
+
+            <a href="shares.html">
+                שיתופים
+            </a>
+
+            <a href="#">
+                חידונים
+            </a>
+
+            <a href="admin-users.html"
+               id="adminLink"
+               hidden>
+                ניהול
+            </a>
+
+        </nav>
+
+        <div class="header-actions">
+
+            <button type="button"
+                    id="mobileMenuButton"
+                    class="mobile-menu-button"
+                    aria-label="פתיחת תפריט">
+                ☰
+            </button>
+
+            <div class="user-area">
+
+                <button type="button"
+                        id="userMenuButton"
+                        class="user-menu-button"
+                        aria-expanded="false"
+                        aria-controls="userDropdown">
+
+                    <span class="user-avatar"
+                          id="userAvatar">
+                        U
+                    </span>
+
+                    <span class="user-summary">
+
+                        <strong id="headerUserName">
+                            משתמש
+                        </strong>
+
+                        <small id="headerUserRole">
+                            User
+                        </small>
+
+                    </span>
+
+                    <span class="dropdown-arrow"
+                          aria-hidden="true">
+                        ⌄
+                    </span>
+
+                </button>
+
+                <div id="userDropdown"
+                     class="user-dropdown">
+
+                    <a href="profile.html?mode=view">
+                        הפרופיל שלי
+                    </a>
+
+                    <a href="profile.html?mode=edit">
+                        עריכת פרטים
+                    </a>
+
+                    <a href="profile.html?mode=preferences">
+                        ההעדפות שלי
+                    </a>
+
+                    <button type="button"
+                            id="logoutButton">
+                        התנתקות
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <main class="country-details-page">
+
+        <div class="page-top-actions">
+
+            <a href="countries.html"
+               class="back-link">
+
+                <span aria-hidden="true">
+                    →
+                </span>
+
+                חזרה לרשימת המדינות
+
+            </a>
+
+        </div>
+
+        <div id="pageMessage"
+             class="page-message"
+             role="status"
+             aria-live="polite">
+        </div>
+
+        <section id="loadingState"
+                 class="loading-state">
+
+            <div class="spinner"></div>
+
+            <h1>
+                טוען את פרטי המדינה...
+            </h1>
+
+            <p>
+                הנתונים מתקבלים מהשרת
+            </p>
+
+        </section>
+
+        <section id="errorState"
+                 class="error-state"
+                 hidden>
+
+            <span aria-hidden="true">
+                ⚠️
+            </span>
+
+            <h1>
+                לא ניתן להציג את המדינה
+            </h1>
+
+            <p id="errorStateText">
+                פרטי המדינה אינם זמינים.
+            </p>
+
+            <a href="countries.html">
+                חזרה למדינות
+            </a>
+
+        </section>
+
+        <div id="countryContent"
+             class="country-content"
+             hidden>
+
+            <section class="country-hero">
+
+                <div class="country-hero-information">
+
+                    <div class="country-code-row">
+
+                        <span id="countryCode"
+                              class="country-code">
+                            ---
+                        </span>
+
+                        <span id="independenceBadge"
+                              class="independence-badge">
+                            לא ידוע
+                        </span>
+
+                    </div>
+
+                    <span id="countryContinent"
+                          class="section-label">
+                        יבשת
+                    </span>
+
+                    <h1 id="countryName">
+                        שם המדינה
+                    </h1>
+
+                    <p id="countryOfficialName"
+                       class="official-name">
+                        השם הרשמי של המדינה
+                    </p>
+
+                    <div class="country-hero-actions">
+
+                        <button type="button"
+                                id="visitedButton"
+                                class="country-list-button visited-button">
+
+                            <span id="visitedButtonIcon"
+                                  aria-hidden="true">
+                                ✓
+                            </span>
+
+                            <span id="visitedButtonText">
+                                ביקרתי במדינה
+                            </span>
+
+                        </button>
+
+                        <button type="button"
+                                id="wishButton"
+                                class="country-list-button wish-button">
+
+                            <span id="wishButtonIcon"
+                                  aria-hidden="true">
+                                ♡
+                            </span>
+
+                            <span id="wishButtonText">
+                                רוצה לבקר
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="country-flag-card">
+
+                    <img id="countryFlag"
+                         class="country-flag"
+                         src=""
+                         alt="דגל המדינה">
+
+                    <div id="missingFlag"
+                         class="missing-flag"
+                         hidden>
+                        🌍
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="statistics-section">
+
+                <article class="statistic-card">
+
+                    <span class="statistic-icon"
+                          aria-hidden="true">
+                        🏛️
+                    </span>
+
+                    <span class="statistic-label">
+                        עיר בירה
+                    </span>
+
+                    <strong id="countryCapital">
+                        לא הוגדרה
+                    </strong>
+
+                </article>
+
+                <article class="statistic-card">
+
+                    <span class="statistic-icon"
+                          aria-hidden="true">
+                        👥
+                    </span>
+
+                    <span class="statistic-label">
+                        אוכלוסייה
+                    </span>
+
+                    <strong id="countryPopulation">
+                        לא ידוע
+                    </strong>
+
+                </article>
+
+                <article class="statistic-card">
+
+                    <span class="statistic-icon"
+                          aria-hidden="true">
+                        📐
+                    </span>
+
+                    <span class="statistic-label">
+                        שטח
+                    </span>
+
+                    <strong id="countryArea">
+                        לא ידוע
+                    </strong>
+
+                </article>
+
+                <article class="statistic-card">
+
+                    <span class="statistic-icon"
+                          aria-hidden="true">
+                        📍
+                    </span>
+
+                    <span class="statistic-label">
+                        אזור
+                    </span>
+
+                    <strong id="countryRegion">
+                        לא הוגדר
+                    </strong>
+
+                </article>
+
+            </section>
+
+            <section class="details-grid">
+
+                <article class="details-card">
+
+                    <div class="card-heading">
+
+                        <span class="card-icon"
+                              aria-hidden="true">
+                            ℹ️
+                        </span>
+
+                        <div>
+
+                            <span class="section-label">
+                                מידע בסיסי
+                            </span>
+
+                            <h2>
+                                פרטי המדינה
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                    <div class="information-list">
+
+                        <div class="information-row">
+
+                            <span>
+                                קוד דו־אותי
+                            </span>
+
+                            <strong id="countryCca2">
+                                לא הוגדר
+                            </strong>
+
+                        </div>
+
+                        <div class="information-row">
+
+                            <span>
+                                קוד תלת־אותי
+                            </span>
+
+                            <strong id="countryCca3">
+                                לא הוגדר
+                            </strong>
+
+                        </div>
+
+                        <div class="information-row">
+
+                            <span>
+                                יבשת
+                            </span>
+
+                            <strong id="countryContinentDetail">
+                                לא הוגדרה
+                            </strong>
+
+                        </div>
+
+                        <div class="information-row">
+
+                            <span>
+                                אזור
+                            </span>
+
+                            <strong id="countryRegionDetail">
+                                לא הוגדר
+                            </strong>
+
+                        </div>
+
+                        <div class="information-row">
+
+                            <span>
+                                תת־אזור
+                            </span>
+
+                            <strong id="countrySubregion">
+                                לא הוגדר
+                            </strong>
+
+                        </div>
+
+                        <div class="information-row">
+
+                            <span>
+                                מדינה עצמאית
+                            </span>
+
+                            <strong id="countryIndependent">
+                                לא ידוע
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <article class="details-card">
+
+                    <div class="card-heading">
+
+                        <span class="card-icon"
+                              aria-hidden="true">
+                            🧭
+                        </span>
+
+                        <div>
+
+                            <span class="section-label">
+                                מיקום גאוגרפי
+                            </span>
+
+                            <h2>
+                                קואורדינטות ומפה
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                    <div class="coordinates-grid">
+
+                        <div class="coordinate-box">
+
+                            <span>
+                                קו רוחב
+                            </span>
+
+                            <strong id="countryLatitude">
+                                לא ידוע
+                            </strong>
+
+                        </div>
+
+                        <div class="coordinate-box">
+
+                            <span>
+                                קו אורך
+                            </span>
+
+                            <strong id="countryLongitude">
+                                לא ידוע
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                    <div class="map-preview">
+
+                        <span aria-hidden="true">
+                            🗺️
+                        </span>
+
+                        <h3>
+                            מיקום המדינה
+                        </h3>
+
+                        <p id="mapCoordinatesText">
+                            הקואורדינטות יופיעו כאן
+                        </p>
+
+                    </div>
+
+                    <a id="googleMapsLink"
+                       class="maps-link"
+                       href="#"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        פתיחה במפות
+
+                        <span aria-hidden="true">
+                            ↗
+                        </span>
+
+                    </a>
+
+                </article>
+
+            </section>
+
+            <section class="details-grid language-currency-grid">
+
+                <article class="details-card">
+
+                    <div class="card-heading">
+
+                        <span class="card-icon"
+                              aria-hidden="true">
+                            🗣️
+                        </span>
+
+                        <div>
+
+                            <span class="section-label">
+                                תקשורת
+                            </span>
+
+                            <h2>
+                                שפות
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                    <div id="languagesList"
+                         class="items-list">
+                    </div>
+
+                    <div id="languagesEmptyState"
+                         class="small-empty-state"
+                         hidden>
+
+                        <span>
+                            💬
+                        </span>
+
+                        <p>
+                            לא נמצאו שפות עבור מדינה זו.
+                        </p>
+
+                    </div>
+
+                </article>
+
+                <article class="details-card">
+
+                    <div class="card-heading">
+
+                        <span class="card-icon"
+                              aria-hidden="true">
+                            💰
+                        </span>
+
+                        <div>
+
+                            <span class="section-label">
+                                כלכלה
+                            </span>
+
+                            <h2>
+                                מטבעות
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                    <div id="currenciesList"
+                         class="items-list">
+                    </div>
+
+                    <div id="currenciesEmptyState"
+                         class="small-empty-state"
+                         hidden>
+
+                        <span>
+                            💳
+                        </span>
+
+                        <p>
+                            לא נמצאו מטבעות עבור מדינה זו.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+            <section class="country-shares-section"
+                     aria-labelledby="countrySharesTitle">
+
+                <div class="country-shares-heading">
+
+                    <div class="country-shares-title-area">
+
+                        <span class="section-label">
+                            חוויות מהקהילה
+                        </span>
+
+                        <h2 id="countrySharesTitle">
+                            שיתופים על המדינה
+                        </h2>
+
+                        <p>
+                            חוויות, המלצות וטיפים שפורסמו על ידי משתמשי האתר.
+                        </p>
+
+                    </div>
+
+                    <div class="country-shares-heading-actions">
+
+                        <span id="countrySharesCount"
+                              class="country-shares-count">
+                            0 שיתופים
+                        </span>
+
+                        <a id="allCountrySharesLink"
+                           href="shares.html">
+                            לכל השיתופים
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div id="countrySharesLoading"
+                     class="country-shares-loading">
+
+                    <div class="spinner"></div>
+
+                    <p>
+                        טוען שיתופים...
+                    </p>
+
+                </div>
+
+                <div id="countrySharesGrid"
+                     class="country-shares-grid"
+                     hidden>
+                </div>
+
+                <div id="countrySharesEmpty"
+                     class="country-shares-empty"
+                     hidden>
+
+                    <span aria-hidden="true">
+                        💭
+                    </span>
+
+                    <h3>
+                        עדיין אין שיתופים על המדינה
+                    </h3>
+
+                    <p>
+                        היה הראשון לשתף חוויה, המלצה או טיפ.
+                    </p>
+
+                    <a id="createCountryShareLink"
+                       href="shares.html">
+                        הוסף שיתוף
+                    </a>
+
+                </div>
+
+            </section>
+
+            <section class="bottom-navigation-card">
+
+                <div>
+
+                    <span class="section-label">
+                        המשך לחקור
+                    </span>
+
+                    <h2>
+                        רוצה לגלות מדינה נוספת?
+                    </h2>
+
+                    <p>
+                        חזור לרשימת המדינות והמשך לחפש יעדים חדשים.
+                    </p>
+
+                </div>
+
+                <a href="countries.html">
+                    לכל המדינות
+                </a>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer class="main-footer">
+
+        <p>
+            © 2026 World Countries
+        </p>
+
+    </footer>
+
+    <script src="../JS/country-details.js?v=9"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,830 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>שיתופים</title>
+
+    <link rel="stylesheet" href="../Styles/shares.css?v=3">
+    <link rel="icon" type="image/png" href="/Assets/favicon.png">
+
+</head>
+
+<body>
+
+    <header class="main-header">
+
+        <a href="index.html"
+           class="site-brand">
+
+            <span class="brand-icon">
+                🌍
+            </span>
+
+            <span class="brand-text">
+
+                <strong>
+                    World Countries
+                </strong>
+
+                <small>
+                    Explore · Learn · Connect
+                </small>
+
+            </span>
+
+        </a>
+
+        <nav class="main-navigation"
+             id="mainNavigation"
+             aria-label="ניווט ראשי">
+
+            <a href="index.html">
+                דף הבית
+            </a>
+
+            <a href="countries.html">
+                מדינות
+            </a>
+
+            <a href="my-lists.html">
+                הרשימות שלי
+            </a>
+
+            <a href="shares.html"
+               class="active"
+               aria-current="page">
+                שיתופים
+            </a>
+
+            <a href="#"
+               id="quizzesLink">
+                חידונים
+            </a>
+
+            <a href="admin-users.html"
+               id="adminLink"
+               hidden>
+                ניהול
+            </a>
+
+        </nav>
+
+        <div class="header-actions">
+
+            <button type="button"
+                    id="mobileMenuButton"
+                    class="mobile-menu-button"
+                    aria-label="פתיחת תפריט">
+                ☰
+            </button>
+
+            <div class="user-area">
+
+                <button type="button"
+                        id="userMenuButton"
+                        class="user-menu-button"
+                        aria-expanded="false"
+                        aria-controls="userDropdown">
+
+                    <span class="user-avatar"
+                          id="userAvatar">
+                        U
+                    </span>
+
+                    <span class="user-summary">
+
+                        <strong id="headerUserName">
+                            משתמש
+                        </strong>
+
+                        <small id="headerUserRole">
+                            User
+                        </small>
+
+                    </span>
+
+                    <span class="dropdown-arrow"
+                          aria-hidden="true">
+                        ⌄
+                    </span>
+
+                </button>
+
+                <div id="userDropdown"
+                     class="user-dropdown">
+
+                    <a href="profile.html?mode=view">
+                        הפרופיל שלי
+                    </a>
+
+                    <a href="profile.html?mode=edit">
+                        עריכת פרטים
+                    </a>
+
+                    <a href="profile.html?mode=preferences">
+                        ההעדפות שלי
+                    </a>
+
+                    <button type="button"
+                            id="logoutButton">
+                        התנתקות
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <main class="shares-page">
+
+        <section class="shares-hero">
+
+            <div class="hero-content">
+
+                <span class="section-label">
+                    חוויות מהעולם
+                </span>
+
+                <h1>
+                    שיתופי משתמשים
+                </h1>
+
+                <p>
+                    קרא חוויות, המלצות וטיפים על מדינות,
+                    ושתף את הידע והמסע האישי שלך עם הקהילה.
+                </p>
+
+                <div class="hero-statistics">
+
+                    <article>
+
+                        <span aria-hidden="true">
+                            💬
+                        </span>
+
+                        <div>
+
+                            <strong id="totalSharesCount">
+                                0
+                            </strong>
+
+                            <small>
+                                שיתופים שנמצאו
+                            </small>
+
+                        </div>
+
+                    </article>
+
+                    <article>
+
+                        <span aria-hidden="true">
+                            🌍
+                        </span>
+
+                        <div>
+
+                            <strong id="sharedCountriesCount">
+                                0
+                            </strong>
+
+                            <small>
+                                מדינות עם שיתופים
+                            </small>
+
+                        </div>
+
+                    </article>
+
+                    <article>
+
+                        <span aria-hidden="true">
+                            ⭐
+                        </span>
+
+                        <div>
+
+                            <strong id="averageRating">
+                                —
+                            </strong>
+
+                            <small>
+                                דירוג ממוצע
+                            </small>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+            <div class="hero-visual"
+                 aria-hidden="true">
+
+                <div class="message-orbit">
+
+                    <span class="message-core">
+                        💬
+                    </span>
+
+                    <span class="orbit-ring orbit-one"></span>
+                    <span class="orbit-ring orbit-two"></span>
+
+                    <span class="orbit-item orbit-item-one">
+                        ⭐
+                    </span>
+
+                    <span class="orbit-item orbit-item-two">
+                        🌍
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="sharePermissionSection"
+                 class="share-permission-section">
+
+            <div id="allowedSharePanel"
+                 class="allowed-share-panel"
+                 hidden>
+
+                <div class="permission-content">
+
+                    <span class="permission-icon"
+                          aria-hidden="true">
+                        ✍️
+                    </span>
+
+                    <div>
+
+                        <span class="section-label">
+                            השיתוף שלך
+                        </span>
+
+                        <h2>
+                            יש לך משהו לספר?
+                        </h2>
+
+                        <p>
+                            שתף חוויה, המלצה או טיפ על מדינה שביקרת בה.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <button type="button"
+                        id="openCreateShareButton"
+                        class="create-share-button">
+
+                    <span aria-hidden="true">
+                        ＋
+                    </span>
+
+                    הוסף שיתוף
+
+                </button>
+
+            </div>
+
+            <div id="blockedSharePanel"
+                 class="blocked-share-panel"
+                 hidden>
+
+                <span class="blocked-icon"
+                      aria-hidden="true">
+                    🚫
+                </span>
+
+                <div>
+
+                    <span class="blocked-label">
+                        פרסום חסום
+                    </span>
+
+                    <h2>
+                        אינך מורשה לפרסם שיתופים
+                    </h2>
+
+                    <p>
+                        מנהל המערכת חסם עבורך את האפשרות ליצור,
+                        לערוך ולמחוק שיתופים. עדיין ניתן לקרוא את
+                        כל השיתופים הקיימים.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="filters-section"
+                 aria-labelledby="filtersTitle">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        איתור שיתופים
+                    </span>
+
+                    <h2 id="filtersTitle">
+                        חיפוש וסינון
+                    </h2>
+
+                </div>
+
+                <button type="button"
+                        id="clearFiltersButton"
+                        class="clear-filters-button">
+                    איפוס מסננים
+                </button>
+
+            </div>
+
+            <div class="filters-panel">
+
+                <div class="filter-field search-field">
+
+                    <label for="searchInput">
+                        חיפוש
+                    </label>
+
+                    <div class="search-wrapper">
+
+                        <span aria-hidden="true">
+                            🔍
+                        </span>
+
+                        <input type="search"
+                               id="searchInput"
+                               placeholder="חיפוש בתוכן, בשם משתמש או במדינה"
+                               autocomplete="off">
+
+                    </div>
+
+                </div>
+
+                <div class="filter-field">
+
+                    <label for="countryFilter">
+                        מדינה
+                    </label>
+
+                    <select id="countryFilter">
+
+                        <option value="">
+                            כל המדינות
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="filter-field">
+
+                    <label for="shareTypeFilter">
+                        סוג שיתוף
+                    </label>
+
+                    <select id="shareTypeFilter">
+
+                        <option value="">
+                            כל הסוגים
+                        </option>
+
+                        <option value="1">
+                            חוויה
+                        </option>
+
+                        <option value="2">
+                            המלצה
+                        </option>
+
+                        <option value="3">
+                            טיפ
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="filter-field">
+
+                    <label for="ratingFilter">
+                        דירוג
+                    </label>
+
+                    <select id="ratingFilter">
+
+                        <option value="">
+                            כל הדירוגים
+                        </option>
+
+                        <option value="5">
+                            5 כוכבים
+                        </option>
+
+                        <option value="4">
+                            4 כוכבים
+                        </option>
+
+                        <option value="3">
+                            3 כוכבים
+                        </option>
+
+                        <option value="2">
+                            2 כוכבים
+                        </option>
+
+                        <option value="1">
+                            כוכב אחד
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="filter-field">
+
+                    <label for="sortDirectionFilter">
+                        סדר
+                    </label>
+
+                    <select id="sortDirectionFilter">
+
+                        <option value="desc">
+                            החדש ביותר
+                        </option>
+
+                        <option value="asc">
+                            הישן ביותר
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <button type="button"
+                        id="refreshSharesButton"
+                        class="refresh-button">
+
+                    <span aria-hidden="true">
+                        ↻
+                    </span>
+
+                    רענון
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <div id="pageMessage"
+             class="page-message"
+             role="status"
+             aria-live="polite">
+        </div>
+
+        <section class="shares-results"
+                 aria-labelledby="sharesTitle">
+
+            <div class="results-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        קהילת המטיילים
+                    </span>
+
+                    <h2 id="sharesTitle">
+                        כל השיתופים
+                    </h2>
+
+                </div>
+
+                <span id="resultsCount"
+                      class="results-count">
+                    0 תוצאות
+                </span>
+
+            </div>
+
+            <div id="loadingState"
+                 class="loading-state">
+
+                <div class="spinner"></div>
+
+                <p>
+                    טוען שיתופים...
+                </p>
+
+            </div>
+
+            <div id="sharesGrid"
+                 class="shares-grid"
+                 hidden>
+            </div>
+
+            <div id="emptyState"
+                 class="empty-state"
+                 hidden>
+
+                <span aria-hidden="true">
+                    💭
+                </span>
+
+                <h3>
+                    לא נמצאו שיתופים
+                </h3>
+
+                <p>
+                    נסה לשנות את המסננים או פרסם את השיתוף הראשון.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="shareFormModal"
+         class="share-modal"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="shareFormTitle"
+         hidden>
+
+        <div class="share-modal-overlay"
+             id="shareFormOverlay">
+        </div>
+
+        <div class="share-form-dialog">
+
+            <div class="share-modal-header">
+
+                <div>
+
+                    <span id="shareFormLabel"
+                          class="section-label">
+                        שיתוף חדש
+                    </span>
+
+                    <h2 id="shareFormTitle">
+                        הוספת שיתוף
+                    </h2>
+
+                    <p id="shareFormSubtitle">
+                        ספר לקהילה על החוויה שלך.
+                    </p>
+
+                </div>
+
+                <button type="button"
+                        id="closeShareFormButton"
+                        class="close-modal-button"
+                        aria-label="סגירת החלון">
+                    ×
+                </button>
+
+            </div>
+
+            <form id="shareForm"
+                  novalidate>
+
+                <div class="share-form-grid">
+
+                    <div class="share-form-field">
+
+                        <label for="shareCountryInput">
+                            מדינה
+                            <span>*</span>
+                        </label>
+
+                        <select id="shareCountryInput">
+
+                            <option value="">
+                                בחר מדינה
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="share-form-field">
+
+                        <label for="shareTypeInput">
+                            סוג שיתוף
+                            <span>*</span>
+                        </label>
+
+                        <select id="shareTypeInput">
+
+                            <option value="">
+                                בחר סוג
+                            </option>
+
+                            <option value="1">
+                                חוויה
+                            </option>
+
+                            <option value="2">
+                                המלצה
+                            </option>
+
+                            <option value="3">
+                                טיפ
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="share-form-field full-width-field">
+
+                        <label for="shareContentInput">
+                            תוכן השיתוף
+                            <span>*</span>
+                        </label>
+
+                        <textarea id="shareContentInput"
+                                  maxlength="1000"
+                                  rows="7"
+                                  placeholder="כתוב כאן את החוויה, ההמלצה או הטיפ שלך..."></textarea>
+
+                        <div class="content-counter">
+
+                            <span id="contentCharacterCount">
+                                0
+                            </span>
+
+                            / 1000
+
+                        </div>
+
+                    </div>
+
+                    <div class="share-form-field full-width-field">
+
+                        <label>
+                            דירוג
+                        </label>
+
+                        <div id="ratingSelector"
+                             class="rating-selector"
+                             role="radiogroup"
+                             aria-label="בחירת דירוג">
+
+                            <button type="button"
+                                    class="rating-star"
+                                    data-rating="1"
+                                    aria-label="כוכב אחד">
+                                ☆
+                            </button>
+
+                            <button type="button"
+                                    class="rating-star"
+                                    data-rating="2"
+                                    aria-label="שני כוכבים">
+                                ☆
+                            </button>
+
+                            <button type="button"
+                                    class="rating-star"
+                                    data-rating="3"
+                                    aria-label="שלושה כוכבים">
+                                ☆
+                            </button>
+
+                            <button type="button"
+                                    class="rating-star"
+                                    data-rating="4"
+                                    aria-label="ארבעה כוכבים">
+                                ☆
+                            </button>
+
+                            <button type="button"
+                                    class="rating-star"
+                                    data-rating="5"
+                                    aria-label="חמישה כוכבים">
+                                ☆
+                            </button>
+
+                            <button type="button"
+                                    id="clearRatingButton"
+                                    class="clear-rating-button">
+                                ללא דירוג
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="shareFormMessage"
+                     class="modal-message"
+                     role="status"
+                     aria-live="polite">
+                </div>
+
+                <div class="share-form-actions">
+
+                    <button type="button"
+                            id="cancelShareFormButton"
+                            class="cancel-modal-button">
+                        ביטול
+                    </button>
+
+                    <button type="submit"
+                            id="saveShareButton"
+                            class="save-share-button">
+                        פרסם שיתוף
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div id="deleteShareModal"
+         class="share-modal"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="deleteShareTitle"
+         hidden>
+
+        <div class="share-modal-overlay"
+             id="deleteShareOverlay">
+        </div>
+
+        <div class="delete-share-dialog">
+
+            <span class="delete-share-icon"
+                  aria-hidden="true">
+                🗑️
+            </span>
+
+            <span class="section-label">
+                מחיקת שיתוף
+            </span>
+
+            <h2 id="deleteShareTitle">
+                האם למחוק את השיתוף?
+            </h2>
+
+            <p>
+                השיתוף יוסר מהאתר ולא יוצג יותר למשתמשים.
+            </p>
+
+            <div class="delete-share-actions">
+
+                <button type="button"
+                        id="cancelDeleteShareButton"
+                        class="cancel-modal-button">
+                    ביטול
+                </button>
+
+                <button type="button"
+                        id="approveDeleteShareButton"
+                        class="approve-delete-button">
+                    מחק שיתוף
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer class="main-footer">
+
+        <p>
+            © 2026 World Countries
+        </p>
+
+    </footer>
+
+    <script src="../JS/shares.js?v=1"></script>
+
+</body>
+
+</html>

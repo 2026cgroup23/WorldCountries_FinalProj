@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>מדינות העולם </title>
+
+    <link rel="stylesheet"
+          href="../Styles/countries.css?v=6">
+
+    <link rel="icon" type="image/png" href="/Assets/favicon.png">
+
+</head>
+
+<body>
+
+    <header class="main-header">
+
+        <a href="index.html"
+           class="site-brand">
+
+            <span class="brand-icon">
+                🌍
+            </span>
+
+            <span class="brand-text">
+
+                <strong>
+                    World Countries
+                </strong>
+
+                <small>
+                    Explore · Learn · Connect
+                </small>
+
+            </span>
+
+        </a>
+
+        <nav class="main-navigation"
+             id="mainNavigation"
+             aria-label="ניווט ראשי">
+
+            <a href="index.html">
+                דף הבית
+            </a>
+
+            <a href="countries.html"
+               class="active"
+               aria-current="page">
+                מדינות
+            </a>
+
+            <a href="my-lists.html"
+               id="listsLink">
+                הרשימות שלי
+            </a>
+
+            <a href="shares.html"
+               id="sharesLink">
+                שיתופים
+            </a>
+
+            <a href="#"
+               id="quizzesLink">
+                חידונים
+            </a>
+
+            <a href="admin-users.html"
+               id="adminLink"
+               hidden>
+                ניהול
+            </a>
+
+        </nav>
+
+        <div class="header-actions">
+
+            <button type="button"
+                    id="mobileMenuButton"
+                    class="mobile-menu-button"
+                    aria-label="פתיחת תפריט">
+                ☰
+            </button>
+
+            <div class="user-area">
+
+                <button type="button"
+                        id="userMenuButton"
+                        class="user-menu-button"
+                        aria-expanded="false"
+                        aria-controls="userDropdown">
+
+                    <span class="user-avatar"
+                          id="userAvatar">
+                        U
+                    </span>
+
+                    <span class="user-summary">
+
+                        <strong id="headerUserName">
+                            משתמש
+                        </strong>
+
+                        <small id="headerUserRole">
+                            User
+                        </small>
+
+                    </span>
+
+                    <span class="dropdown-arrow"
+                          aria-hidden="true">
+                        ⌄
+                    </span>
+
+                </button>
+
+                <div id="userDropdown"
+                     class="user-dropdown">
+
+                    <a href="profile.html?mode=view">
+                        הפרופיל שלי
+                    </a>
+
+                    <a href="profile.html?mode=edit">
+                        עריכת פרטים
+                    </a>
+
+                    <a href="profile.html?mode=preferences">
+                        ההעדפות שלי
+                    </a>
+
+                    <button type="button"
+                            id="logoutButton">
+                        התנתקות
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <main class="countries-page">
+
+        <section class="countries-hero">
+
+            <div class="hero-content">
+
+                <span class="section-label">
+                    חקור את העולם
+                </span>
+
+                <h1>
+                    מדינות העולם
+                </h1>
+
+                <p>
+                    חפש מדינות, סנן לפי יבשת ומיין לפי שם,
+                    אוכלוסייה או שטח.
+                </p>
+
+                <div class="hero-statistics">
+
+                    <article>
+
+                        <span aria-hidden="true">
+                            🌍
+                        </span>
+
+                        <div>
+
+                            <strong id="totalCountries">
+                                0
+                            </strong>
+
+                            <small>
+                                מדינות שנמצאו
+                            </small>
+
+                        </div>
+
+                    </article>
+
+                    <article>
+
+                        <span aria-hidden="true">
+                            🧭
+                        </span>
+
+                        <div>
+
+                            <strong id="activeFiltersCount">
+                                0
+                            </strong>
+
+                            <small>
+                                מסננים פעילים
+                            </small>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+            <div class="hero-visual"
+                 aria-hidden="true">
+
+                <div class="radar">
+
+                    <span class="radar-core">
+                        🌐
+                    </span>
+
+                    <span class="radar-ring radar-ring-one"></span>
+                    <span class="radar-ring radar-ring-two"></span>
+                    <span class="radar-ring radar-ring-three"></span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="adminCountriesSection"
+                 class="admin-countries-section"
+                 hidden>
+
+            <div class="admin-countries-content">
+
+                <span class="admin-countries-icon"
+                      aria-hidden="true">
+                    🛡️
+                </span>
+
+                <div>
+
+                    <span class="section-label">
+                        ניהול מדינות
+                    </span>
+
+                    <h2>
+                        פעולות מנהל
+                    </h2>
+
+                    <p>
+                        הוסף מדינות חדשות, ערוך נתונים קיימים
+                        או מחק מדינות מהמערכת.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <button type="button"
+                    id="addCountryButton"
+                    class="add-country-button">
+
+                <span aria-hidden="true">
+                    ＋
+                </span>
+
+                הוסף מדינה
+
+            </button>
+
+        </section>
+
+        <section class="filters-section"
+                 aria-labelledby="filtersTitle">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        איתור מדינה
+                    </span>
+
+                    <h2 id="filtersTitle">
+                        חיפוש, סינון ומיון
+                    </h2>
+
+                </div>
+
+                <button type="button"
+                        id="clearFiltersButton"
+                        class="clear-filters-button">
+                    איפוס מסננים
+                </button>
+
+            </div>
+
+            <div class="filters-panel">
+
+                <div class="filter-field search-field">
+
+                    <label for="searchInput">
+                        חיפוש
+                    </label>
+
+                    <div class="search-wrapper">
+
+                        <span aria-hidden="true">
+                            🔍
+                        </span>
+
+                        <input type="search"
+                               id="searchInput"
+                               placeholder="חיפוש לפי שם או עיר בירה"
+                               autocomplete="off">
+
+                    </div>
+
+                </div>
+
+                <div class="filter-field">
+
+                    <label for="continentFilter">
+                        יבשת
+                    </label>
+
+                    <select id="continentFilter">
+
+                        <option value="">
+                            כל היבשות
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="filter-field">
+
+                    <label for="sortFilter">
+                        מיון
+                    </label>
+
+                    <select id="sortFilter">
+
+                        <option value="name-asc">
+                            שם: א׳–ת׳
+                        </option>
+
+                        <option value="name-desc">
+                            שם: ת׳–א׳
+                        </option>
+
+                        <option value="population-desc">
+                            אוכלוסייה: מהגדולה לקטנה
+                        </option>
+
+                        <option value="population-asc">
+                            אוכלוסייה: מהקטנה לגדולה
+                        </option>
+
+                        <option value="area-desc">
+                            שטח: מהגדול לקטן
+                        </option>
+
+                        <option value="area-asc">
+                            שטח: מהקטן לגדול
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <button type="button"
+                        id="refreshButton"
+                        class="refresh-button">
+
+                    <span aria-hidden="true">
+                        ↻
+                    </span>
+
+                    רענון
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <div id="pageMessage"
+             class="page-message"
+             role="status"
+             aria-live="polite">
+        </div>
+
+        <section class="countries-results"
+                 aria-labelledby="countriesTitle">
+
+            <div class="section-heading results-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        תוצאות
+                    </span>
+
+                    <h2 id="countriesTitle">
+                        רשימת המדינות
+                    </h2>
+
+                </div>
+
+                <span id="resultsCount"
+                      class="results-count">
+                    0 תוצאות
+                </span>
+
+            </div>
+
+            <div id="loadingState"
+                 class="loading-state">
+
+                <div class="spinner"></div>
+
+                <p>
+                    טוען מדינות...
+                </p>
+
+            </div>
+
+            <div id="countriesGrid"
+                 class="countries-grid">
+            </div>
+
+            <div id="emptyState"
+                 class="empty-state"
+                 hidden>
+
+                <span aria-hidden="true">
+                    🗺️
+                </span>
+
+                <h3>
+                    לא נמצאו מדינות
+                </h3>
+
+                <p>
+                    נסה לשנות את החיפוש או את אפשרויות הסינון.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="countryFormModal"
+         class="country-modal"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="countryFormTitle"
+         hidden>
+
+        <div class="country-modal-overlay"
+             data-close-country-form>
+        </div>
+
+        <div class="country-form-dialog">
+
+            <div class="country-modal-header">
+
+                <div>
+
+                    <span class="section-label"
+                          id="countryFormLabel">
+                        ניהול מדינה
+                    </span>
+
+                    <h2 id="countryFormTitle">
+                        הוספת מדינה
+                    </h2>
+
+                    <p id="countryFormSubtitle">
+                        מלא את פרטי המדינה החדשה.
+                    </p>
+
+                </div>
+
+                <button type="button"
+                        id="closeCountryFormButton"
+                        class="close-modal-button"
+                        aria-label="סגירת החלון">
+                    ×
+                </button>
+
+            </div>
+
+            <form id="countryForm"
+                  novalidate>
+
+                <div class="country-form-grid">
+
+                    <!-- Common name -->
+
+                    <div class="country-form-field">
+
+                        <label for="countryCommonNameInput">
+                            שם המדינה
+                            <span>*</span>
+                        </label>
+
+                        <input type="text"
+                               id="countryCommonNameInput"
+                               maxlength="150"
+                               placeholder="לדוגמה: Israel">
+
+                    </div>
+
+                    <!-- Official name -->
+
+                    <div class="country-form-field">
+
+                        <label for="countryOfficialNameInput">
+                            שם רשמי
+                        </label>
+
+                        <input type="text"
+                               id="countryOfficialNameInput"
+                               maxlength="200"
+                               placeholder="לדוגמה: State of Israel">
+
+                    </div>
+
+                    <!-- CCA2 -->
+
+                    <div class="country-form-field">
+
+                        <label for="countryCca2Input">
+                            קוד CCA2
+                        </label>
+
+                        <input type="text"
+                               id="countryCca2Input"
+                               maxlength="2"
+                               placeholder="IL">
+
+                    </div>
+
+                    <!-- CCA3 -->
+
+                    <div class="country-form-field">
+
+                        <label for="countryCca3Input">
+                            קוד CCA3
+                            <span>*</span>
+                        </label>
+
+                        <input type="text"
+                               id="countryCca3Input"
+                               maxlength="3"
+                               placeholder="ISR">
+
+                    </div>
+
+                    <!-- Capital -->
+
+                    <div class="country-form-field">
+
+                        <label for="countryCapitalInput">
+                            עיר בירה
+                        </label>
+
+                        <input type="text"
+                               id="countryCapitalInput"
+                               maxlength="150"
+                               placeholder="Jerusalem">
+
+                    </div>
+
+                    <!-- Continent -->
+
+                    <div class="country-form-field">
+
+                        <label for="countryContinentInput">
+                            יבשת
+                        </label>
+
+                        <select id="countryContinentInput">
+
+                            <option value="">
+                                בחר יבשת
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- Region -->
+
+                    <div class="country-form-field">
+
+                        <label for="countryRegionInput">
+                            אזור
+                        </label>
+
+                        <input type="text"
+                               id="countryRegionInput"
+                               maxlength="100"
+                               placeholder="Asia">
+
+                    </div>
+
+                    <!-- Subregion -->
+
+                    <div class="country-form-field">
+
+                        <label for="countrySubregionInput">
+                            תת־אזור
+                        </label>
+
+                        <input type="text"
+                               id="countrySubregionInput"
+                               maxlength="100"
+                               placeholder="Western Asia">
+
+                    </div>
+
+                    <!-- Population -->
+
+                    <div class="country-form-field">
+
+                        <label for="countryPopulationInput">
+                            אוכלוסייה
+                            <span>*</span>
+                        </label>
+
+                        <input type="number"
+                               id="countryPopulationInput"
+                               min="0"
+                               step="1"
+                               value="0">
+
+                    </div>
+
+                    <!-- Area -->
+
+                    <div class="country-form-field">
+
+                        <label for="countryAreaInput">
+                            שטח בקמ״ר
+                            <span>*</span>
+                        </label>
+
+                        <input type="number"
+                               id="countryAreaInput"
+                               min="0"
+                               step="0.01"
+                               value="0">
+
+                    </div>
+
+                    <!-- Latitude -->
+
+                    <div class="country-form-field">
+
+                        <label for="countryLatitudeInput">
+                            קו רוחב
+                        </label>
+
+                        <input type="number"
+                               id="countryLatitudeInput"
+                               min="-90"
+                               max="90"
+                               step="any"
+                               placeholder="31.0461">
+
+                    </div>
+
+                    <!-- Longitude -->
+
+                    <div class="country-form-field">
+
+                        <label for="countryLongitudeInput">
+                            קו אורך
+                        </label>
+
+                        <input type="number"
+                               id="countryLongitudeInput"
+                               min="-180"
+                               max="180"
+                               step="any"
+                               placeholder="34.8516">
+
+                    </div>
+
+                    <!-- Flag URL -->
+
+                    <div class="country-form-field full-width-field">
+
+                        <label for="countryFlagUrlInput">
+                            כתובת URL של הדגל
+                        </label>
+
+                        <input type="url"
+                               id="countryFlagUrlInput"
+                               placeholder="https://...">
+
+                    </div>
+
+                    <!-- Google maps URL -->
+
+                    <div class="country-form-field full-width-field">
+
+                        <label for="countryGoogleMapsInput">
+                            כתובת Google Maps
+                        </label>
+
+                        <input type="url"
+                               id="countryGoogleMapsInput"
+                               placeholder="https://maps.google.com/...">
+
+                    </div>
+
+                    <!-- Independent -->
+
+                    <div class="country-form-field full-width-field">
+
+                        <label for="countryIndependentInput">
+                            מצב עצמאות
+                        </label>
+
+                        <select id="countryIndependentInput">
+
+                            <option value="">
+                                לא ידוע
+                            </option>
+
+                            <option value="true">
+                                מדינה עצמאית
+                            </option>
+
+                            <option value="false">
+                                טריטוריה / לא עצמאית
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div id="countryFormMessage"
+                     class="modal-message"
+                     role="status"
+                     aria-live="polite">
+                </div>
+
+                <div class="country-form-actions">
+
+                    <button type="button"
+                            id="cancelCountryFormButton"
+                            class="cancel-modal-button">
+                        ביטול
+                    </button>
+
+                    <button type="submit"
+                            id="saveCountryButton"
+                            class="save-country-button">
+                        שמור מדינה
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div id="deleteCountryModal"
+         class="country-modal"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="deleteCountryTitle"
+         hidden>
+
+        <div class="country-modal-overlay"
+             data-close-delete-modal>
+        </div>
+
+        <div class="delete-country-dialog">
+
+            <span class="delete-country-icon"
+                  aria-hidden="true">
+                ⚠️
+            </span>
+
+            <span class="section-label">
+                נדרש אישור
+            </span>
+
+            <h2 id="deleteCountryTitle">
+                מחיקת מדינה
+            </h2>
+
+            <p id="deleteCountryText">
+                האם למחוק את המדינה?
+            </p>
+
+            <div class="delete-warning">
+
+                <span aria-hidden="true">
+                    ℹ️
+                </span>
+
+                <p>
+                    הפעולה תמחק את המדינה ממסד הנתונים
+                    ולא ניתן יהיה לבטל אותה.
+                </p>
+
+            </div>
+
+            <div class="delete-country-actions">
+
+                <button type="button"
+                        id="cancelDeleteCountryButton"
+                        class="cancel-modal-button">
+                    ביטול
+                </button>
+
+                <button type="button"
+                        id="approveDeleteCountryButton"
+                        class="approve-delete-button">
+                    מחק מדינה
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer class="main-footer">
+
+        <p>
+            © 2026 World Countries
+        </p>
+
+    </footer>
+
+    <script src="../JS/countries.js?v=4"></script>
+
+</body>
+
+</html>

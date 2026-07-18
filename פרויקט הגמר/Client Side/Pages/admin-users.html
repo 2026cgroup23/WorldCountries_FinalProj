@@ -1,0 +1,705 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ניהול משתמשים </title>
+
+    <link rel="stylesheet"
+          href="../Styles/admin-users.css?v=7">
+
+    <link rel="icon" type="image/png" href="/Assets/favicon.png">
+
+</head>
+
+<body>
+
+    <header class="main-header">
+
+        <a href="index.html"
+           class="site-brand">
+
+            <span class="brand-icon">
+                🌍
+            </span>
+
+            <span class="brand-text">
+
+                <strong>
+                    World Countries
+                </strong>
+
+                <small>
+                    Explore · Learn · Connect
+                </small>
+
+            </span>
+
+        </a>
+
+        <nav class="main-navigation"
+             id="mainNavigation"
+             aria-label="ניווט ראשי">
+
+            <a href="index.html">
+                דף הבית
+            </a>
+
+            <a href="countries.html"
+               aria-disabled="true">
+                מדינות
+            </a>
+
+            <a href="my-lists.html"
+               aria-disabled="true">
+                הרשימות שלי
+            </a>
+
+            <a href="shares.html"
+               aria-disabled="true">
+                שיתופים
+            </a>
+
+            <a href="#"
+               aria-disabled="true">
+                חידונים
+            </a>
+
+            <a href="admin-users.html"
+               class="active"
+               aria-current="page">
+                ניהול
+            </a>
+
+        </nav>
+
+        <div class="header-actions">
+
+            <button type="button"
+                    id="mobileMenuButton"
+                    class="mobile-menu-button"
+                    aria-label="פתיחת תפריט">
+                ☰
+            </button>
+
+            <div class="user-area">
+
+                <button type="button"
+                        id="userMenuButton"
+                        class="user-menu-button"
+                        aria-expanded="false"
+                        aria-controls="userDropdown">
+
+                    <span class="user-avatar"
+                          id="userAvatar">
+                        A
+                    </span>
+
+                    <span class="user-summary">
+
+                        <strong id="headerUserName">
+                            מנהל
+                        </strong>
+
+                        <small id="headerUserRole">
+                            Admin
+                        </small>
+
+                    </span>
+
+                    <span class="dropdown-arrow"
+                          aria-hidden="true">
+                        ⌄
+                    </span>
+
+                </button>
+
+                <div id="userDropdown"
+                     class="user-dropdown">
+
+                    <a href="profile.html?mode=view">
+                        הפרופיל שלי
+                    </a>
+
+                    <a href="profile.html?mode=edit">
+                        עריכת פרטים
+                    </a>
+
+                    <a href="profile.html?mode=preferences">
+                        ההעדפות שלי
+                    </a>
+
+                    <button type="button"
+                            id="logoutButton">
+                        התנתקות
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <main class="admin-page">
+
+        <section class="admin-hero">
+
+            <div class="admin-hero-content">
+
+                <span class="section-label">
+                    מרכז הבקרה
+                </span>
+
+                <h1>
+                    ניהול המערכת
+                </h1>
+
+                <div class="admin-capabilities">
+
+                    <span>
+                        👥 ניהול משתמשים
+                    </span>
+
+                    <span>
+                        🔒 נעילה ושחרור
+                    </span>
+
+                    <span>
+                        💬 הרשאות שיתוף
+                    </span>
+
+                    <span>
+                        📊 נתוני שימוש
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="admin-hero-badge"
+                 aria-hidden="true">
+
+                <span>
+                    🛡️
+                </span>
+
+                <strong>
+                    Admin
+                </strong>
+
+                <small>
+                    System Control
+                </small>
+
+            </div>
+
+        </section>
+
+        <section class="statistics-section"
+                 aria-labelledby="usersStatisticsTitle">
+
+            <div class="statistics-section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        מצב המשתמשים
+                    </span>
+
+                    <h2 id="usersStatisticsTitle">
+                        נתוני משתמשים
+                    </h2>
+
+                </div>
+
+                <p>
+                    תמונת מצב עדכנית של החשבונות במערכת
+                </p>
+
+            </div>
+
+            <div class="admin-summary users-summary">
+
+                <article class="summary-card">
+
+                    <span class="summary-icon"
+                          aria-hidden="true">
+                        👥
+                    </span>
+
+                    <div class="summary-details">
+
+                        <span>
+                            סך המשתמשים
+                        </span>
+
+                        <strong id="totalUsers">
+                            0
+                        </strong>
+
+                    </div>
+
+                </article>
+
+                <article class="summary-card active-summary-card">
+
+                    <span class="summary-icon"
+                          aria-hidden="true">
+                        ✓
+                    </span>
+
+                    <div class="summary-details">
+
+                        <span>
+                            משתמשים פעילים
+                        </span>
+
+                        <strong id="activeUsers">
+                            0
+                        </strong>
+
+                    </div>
+
+                </article>
+
+                <article class="summary-card locked-summary-card">
+
+                    <span class="summary-icon"
+                          aria-hidden="true">
+                        🔒
+                    </span>
+
+                    <div class="summary-details">
+
+                        <span>
+                            משתמשים נעולים
+                        </span>
+
+                        <strong id="lockedUsers">
+                            0
+                        </strong>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <section class="statistics-section system-statistics-section"
+                 aria-labelledby="systemStatisticsTitle">
+
+            <div class="statistics-section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        פעילות המערכת
+                    </span>
+
+                    <h2 id="systemStatisticsTitle">
+                        נתוני שימוש
+                    </h2>
+
+                </div>
+
+                <p>
+                    נתונים בסיסיים הנדרשים למנהל המערכת
+                </p>
+
+            </div>
+
+            <div class="admin-summary system-summary">
+
+                <article class="summary-card statistics-card">
+
+                    <span class="summary-icon"
+                          aria-hidden="true">
+                        🔑
+                    </span>
+
+                    <div class="summary-details">
+
+                        <span>
+                            כניסות היום
+                        </span>
+
+                        <strong id="dailyLogins">
+                            0
+                        </strong>
+
+                    </div>
+
+                </article>
+
+                <article class="summary-card statistics-card">
+
+                    <span class="summary-icon"
+                          aria-hidden="true">
+                        🌍
+                    </span>
+
+                    <div class="summary-details">
+
+                        <span>
+                            מדינות שיובאו
+                        </span>
+
+                        <strong id="importedCountries">
+                            0
+                        </strong>
+
+                    </div>
+
+                </article>
+
+                <article class="summary-card statistics-card">
+
+                    <span class="summary-icon"
+                          aria-hidden="true">
+                        📍
+                    </span>
+
+                    <div class="summary-details">
+
+                        <span>
+                            מדינות שנשמרו
+                        </span>
+
+                        <strong id="savedCountries">
+                            0
+                        </strong>
+
+                    </div>
+
+                </article>
+
+                <article class="summary-card statistics-card">
+
+                    <span class="summary-icon"
+                          aria-hidden="true">
+                        💬
+                    </span>
+
+                    <div class="summary-details">
+
+                        <span>
+                            שיתופים שנוצרו
+                        </span>
+
+                        <strong id="createdShares">
+                            0
+                        </strong>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <section class="admin-toolbar-section"
+                 aria-labelledby="filtersTitle">
+
+            <div class="toolbar-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        איתור משתמשים
+                    </span>
+
+                    <h2 id="filtersTitle">
+                        חיפוש וסינון
+                    </h2>
+
+                </div>
+
+                <button type="button"
+                        id="refreshButton"
+                        class="refresh-button">
+                    <span aria-hidden="true">
+                        ↻
+                    </span>
+
+                    רענון נתונים
+                </button>
+
+            </div>
+
+            <div class="admin-toolbar">
+
+                <div class="filter-field search-field">
+
+                    <label for="searchInput">
+                        חיפוש משתמש
+                    </label>
+
+                    <div class="search-wrapper">
+
+                        <span class="search-icon"
+                              aria-hidden="true">
+                            🔍
+                        </span>
+
+                        <input type="search"
+                               id="searchInput"
+                               placeholder="חיפוש לפי שם או אימייל"
+                               autocomplete="off">
+
+                    </div>
+
+                </div>
+
+                <div class="filter-field">
+
+                    <label for="statusFilter">
+                        סטטוס חשבון
+                    </label>
+
+                    <select id="statusFilter">
+
+                        <option value="all">
+                            כל הסטטוסים
+                        </option>
+
+                        <option value="active">
+                            משתמשים פעילים
+                        </option>
+
+                        <option value="locked">
+                            משתמשים נעולים
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="filter-field">
+
+                    <label for="shareFilter">
+                        הרשאת שיתוף
+                    </label>
+
+                    <select id="shareFilter">
+
+                        <option value="all">
+                            כל הרשאות השיתוף
+                        </option>
+
+                        <option value="allowed">
+                            שיתוף מאושר
+                        </option>
+
+                        <option value="blocked">
+                            שיתוף חסום
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <div id="adminMessage"
+             class="admin-message"
+             role="status"
+             aria-live="polite">
+        </div>
+
+        <section class="users-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        משתמשי המערכת
+                    </span>
+
+                    <h2>
+                        רשימת משתמשים
+                    </h2>
+
+                    <p class="section-description">
+                        נהל את מצב החשבון ואת הרשאות השיתוף
+                        של כל משתמש במערכת.
+                    </p>
+
+                </div>
+
+                <div class="users-section-actions">
+
+                    <span class="results-count"
+                          id="resultsCount">
+                        0 תוצאות
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="table-wrapper">
+
+                <table class="users-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th scope="col">
+                                משתמש
+                            </th>
+
+                            <th scope="col">
+                                אימייל
+                            </th>
+
+                            <th scope="col">
+                                תפקיד
+                            </th>
+
+                            <th scope="col">
+                                סטטוס
+                            </th>
+
+                            <th scope="col">
+                                הרשאת שיתוף
+                            </th>
+
+                            <th scope="col">
+                                התחברות אחרונה
+                            </th>
+
+                            <th scope="col">
+                                פעולות
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="usersTableBody">
+
+                        <tr class="loading-row">
+
+                            <td colspan="7">
+
+                                <div class="loading-state">
+
+                                    <div class="spinner"></div>
+
+                                    <span>
+                                        טוען משתמשים...
+                                    </span>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div id="emptyState"
+                 class="empty-state"
+                 hidden>
+
+                <span aria-hidden="true">
+                    👤
+                </span>
+
+                <h3>
+                    לא נמצאו משתמשים
+                </h3>
+
+                <p>
+                    נסה לשנות את החיפוש או את אפשרויות הסינון.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="confirmModal"
+         class="confirm-modal"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="confirmTitle"
+         aria-describedby="confirmText"
+         hidden>
+
+        <div class="confirm-overlay"></div>
+
+        <div class="confirm-dialog">
+
+            <span class="confirm-icon"
+                  aria-hidden="true">
+                ⚠️
+            </span>
+
+            <span class="confirm-label">
+                נדרש אישור
+            </span>
+
+            <h2 id="confirmTitle">
+                אישור פעולה
+            </h2>
+
+            <p id="confirmText">
+                האם אתה בטוח?
+            </p>
+
+            <div class="confirm-warning">
+
+                <span aria-hidden="true">
+                    ℹ️
+                </span>
+
+                <p>
+                    הפעולה תתבצע מיד לאחר האישור.
+                </p>
+
+            </div>
+
+            <div class="confirm-actions">
+
+                <button type="button"
+                        id="cancelConfirmButton"
+                        class="cancel-confirm-button">
+                    ביטול
+                </button>
+
+                <button type="button"
+                        id="approveConfirmButton"
+                        class="approve-confirm-button">
+                    אישור
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="../JS/admin-users.js?v=4"></script>
+
+</body>
+
+</html>

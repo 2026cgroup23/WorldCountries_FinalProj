@@ -1,0 +1,470 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --background-dark: #020711;
+    --card-background: rgba(8, 24, 52, 0.76);
+    --card-border: rgba(113, 174, 255, 0.28);
+    --input-background: rgba(22, 48, 88, 0.5);
+    --input-border: rgba(130, 184, 255, 0.22);
+    --primary-blue: #148cff;
+    --primary-cyan: #25d5ff;
+    --primary-purple: #8a45ff;
+    --text-main: #ffffff;
+    --text-secondary: #a9c3e8;
+    --text-muted: #7793b9;
+    --error: #ff7185;
+    --success: #52e8a7;
+    --glow-blue: rgba(37, 213, 255, 0.45);
+    --glow-purple: rgba(138, 69, 255, 0.4);
+    --border-radius-large: 24px;
+    --border-radius-medium: 15px;
+    --border-radius-small: 10px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Heebo", Arial, sans-serif;
+    color: var(--text-main);
+    background: linear-gradient( rgba(1, 6, 18, 0.18), rgba(1, 6, 18, 0.58) ), url("../Assets/earth-background.png") center center / cover no-repeat fixed;
+    background-color: var(--background-dark);
+    overflow-x: hidden;
+}
+
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background: radial-gradient( circle at 50% 14%, rgba(35, 137, 255, 0.2), transparent 31% ), radial-gradient( circle at 78% 72%, rgba(125, 61, 255, 0.13), transparent 34% );
+    }
+
+.register-page {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 18px;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 460px;
+    padding: 30px 30px 24px;
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius-large);
+    background: var(--card-background);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 24px 65px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 40px rgba(30, 120, 255, 0.11);
+}
+
+.register-header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+    .register-header::before {
+        content: "🌍";
+        display: block;
+        margin-bottom: 8px;
+        font-size: 34px;
+        filter: drop-shadow( 0 0 12px var(--glow-blue) );
+    }
+
+    .register-header h1 {
+        margin-bottom: 6px;
+        font-size: clamp(28px, 4vw, 38px);
+        font-weight: 700;
+        letter-spacing: -0.8px;
+    }
+
+    .register-header p {
+        color: var(--text-secondary);
+        font-size: 15px;
+    }
+
+    .register-header::after {
+        content: "";
+        display: block;
+        width: 48px;
+        height: 3px;
+        margin: 14px auto 0;
+        border-radius: 999px;
+        background: linear-gradient( 90deg, var(--primary-blue), var(--primary-cyan) );
+        box-shadow: 0 0 12px var(--glow-blue);
+    }
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 7px;
+        color: #d8e7ff;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .form-group input {
+        width: 100%;
+        height: 48px;
+        padding: 0 16px;
+        border: 1px solid var(--input-border);
+        border-radius: var(--border-radius-medium);
+        outline: none;
+        color: var(--text-main);
+        background: var(--input-background);
+        font-family: inherit;
+        font-size: 15px;
+        transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, transform 0.25s ease;
+    }
+
+        .form-group input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-group input:hover {
+            background: rgba(28, 59, 104, 0.58);
+        }
+
+        .form-group input:focus {
+            border-color: rgba(56, 200, 255, 0.8);
+            background: rgba(24, 56, 103, 0.75);
+            box-shadow: 0 0 0 4px rgba(37, 213, 255, 0.1), 0 0 22px rgba(37, 213, 255, 0.12);
+            transform: translateY(-1px);
+        }
+
+.password-wrapper {
+    position: relative;
+}
+
+    .password-wrapper input {
+        padding-left: 78px;
+    }
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    left: 9px;
+    transform: translateY(-50%);
+    min-width: 56px;
+    height: 34px;
+    border: 1px solid rgba(100, 177, 255, 0.25);
+    border-radius: 11px;
+    color: #c9e1ff;
+    background: rgba(31, 87, 160, 0.38);
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+}
+
+    .toggle-password:hover {
+        color: #ffffff;
+        background: rgba(36, 123, 224, 0.55);
+        box-shadow: 0 0 18px rgba(37, 213, 255, 0.16);
+    }
+
+.error-message {
+    display: block;
+    min-height: 18px;
+    margin-top: 5px;
+    padding-right: 3px;
+    color: var(--error);
+    font-size: 12px;
+}
+
+.server-message {
+    display: none;
+    margin: 4px 0 14px;
+    padding: 11px 14px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 13px;
+}
+
+    .server-message.error {
+        display: block;
+        border: 1px solid rgba(255, 113, 133, 0.34);
+        color: #ffd5db;
+        background: rgba(255, 75, 100, 0.11);
+    }
+
+    .server-message.success {
+        display: block;
+        border: 1px solid rgba(82, 232, 167, 0.34);
+        color: #caffea;
+        background: rgba(40, 201, 137, 0.11);
+    }
+
+.register-button {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-top: 2px;
+    border: 0;
+    border-radius: var(--border-radius-medium);
+    overflow: hidden;
+    color: #ffffff;
+    background: linear-gradient( 110deg, var(--primary-blue), #326cff 48%, var(--primary-purple) );
+    box-shadow: 0 10px 28px rgba(38, 110, 255, 0.34), 0 0 20px rgba(138, 69, 255, 0.18);
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+    .register-button::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -30%;
+        width: 35%;
+        height: 200%;
+        transform: rotate(22deg);
+        background: rgba(255, 255, 255, 0.24);
+        transition: left 0.5s ease;
+    }
+
+    .register-button:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.08);
+        box-shadow: 0 14px 34px rgba(38, 110, 255, 0.45), 0 0 30px rgba(138, 69, 255, 0.28);
+    }
+
+        .register-button:hover::before {
+            left: 115%;
+        }
+
+    .register-button:active {
+        transform: translateY(0);
+    }
+
+    .register-button:disabled {
+        cursor: not-allowed;
+        opacity: 0.66;
+        transform: none;
+    }
+
+.login-link {
+    position: relative;
+    margin-top: 20px;
+    padding-top: 18px;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+    .login-link::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 1px;
+        background: linear-gradient( 90deg, transparent, rgba(81, 181, 255, 0.48), transparent );
+    }
+
+    .login-link a {
+        margin-right: 5px;
+        color: var(--primary-cyan);
+        font-weight: 600;
+        text-decoration: none;
+        text-shadow: 0 0 12px rgba(37, 213, 255, 0.35);
+    }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+@media (max-width: 900px) {
+    body {
+        background-size: cover;
+        background-position: center center;
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        background: linear-gradient( rgba(1, 6, 18, 0.12), rgba(1, 6, 18, 0.5) ), url("../Assets/earth-background.png") center top / contain 100% auto no-repeat;
+        background-color: var(--background-dark);
+        background-attachment: scroll;
+    }
+
+    .register-page {
+        min-height: 100vh;
+        align-items: flex-start;
+        padding: 16px 12px 26px;
+    }
+
+    .register-card {
+        max-width: 390px;
+        margin: 0 auto;
+        padding: 22px 18px 18px;
+        border-radius: 20px;
+        background: rgba(8, 24, 52, 0.72);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+    }
+
+    .register-header {
+        margin-bottom: 17px;
+    }
+
+        .register-header::before {
+            margin-bottom: 5px;
+            font-size: 29px;
+        }
+
+        .register-header h1 {
+            margin-bottom: 4px;
+            font-size: 27px;
+        }
+
+        .register-header p {
+            font-size: 13px;
+        }
+
+        .register-header::after {
+            width: 42px;
+            margin-top: 11px;
+        }
+
+    .form-group {
+        margin-bottom: 9px;
+    }
+
+        .form-group label {
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .form-group input {
+            height: 44px;
+            padding-right: 14px;
+            padding-left: 14px;
+            font-size: 14px;
+        }
+
+    .password-wrapper input {
+        padding-left: 70px;
+    }
+
+    .toggle-password {
+        left: 7px;
+        min-width: 51px;
+        height: 31px;
+        font-size: 12px;
+    }
+
+    .error-message {
+        min-height: 16px;
+        margin-top: 3px;
+        font-size: 11px;
+    }
+
+    .register-button {
+        height: 46px;
+        font-size: 15px;
+    }
+
+    .login-link {
+        margin-top: 16px;
+        padding-top: 15px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 380px) {
+    .register-page {
+        padding-right: 7px;
+        padding-left: 7px;
+    }
+
+    .register-card {
+        padding-right: 13px;
+        padding-left: 13px;
+    }
+
+    .register-header h1 {
+        font-size: 24px;
+    }
+
+    .register-header p {
+        font-size: 12px;
+    }
+
+    .form-group input {
+        height: 42px;
+    }
+
+    .password-wrapper input {
+        padding-left: 65px;
+    }
+
+    .toggle-password {
+        min-width: 48px;
+        font-size: 11px;
+    }
+}
+
+/* =========================================
+   GLOBAL SCROLLBAR
+========================================= */
+
+/* Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #3b82f6 #050d1d;
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+/* רקע המסילה */
+::-webkit-scrollbar-track {
+    background: linear-gradient( 180deg, #020817 0%, #07152d 50%, #020817 100% );
+    border-left: 1px solid rgba(96, 165, 250, 0.12);
+}
+
+/* הידית */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient( 180deg, #22d3ee 0%, #3b82f6 45%, #7c3aed 100% );
+    border: 3px solid #050d1d;
+    border-radius: 999px;
+    box-shadow: 0 0 8px rgba(34, 211, 238, 0.45), 0 0 16px rgba(124, 58, 237, 0.28);
+}
+
+    /* מעבר עכבר */
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient( 180deg, #67e8f9 0%, #60a5fa 45%, #8b5cf6 100% );
+        box-shadow: 0 0 10px rgba(34, 211, 238, 0.7), 0 0 22px rgba(124, 58, 237, 0.45);
+    }
+
+    /* בזמן לחיצה */
+    ::-webkit-scrollbar-thumb:active {
+        background: linear-gradient( 180deg, #06b6d4 0%, #2563eb 45%, #6d28d9 100% );
+    }
+
+/* הפינה בין גלילה אנכית לאופקית */
+::-webkit-scrollbar-corner {
+    background: #050d1d;
+}

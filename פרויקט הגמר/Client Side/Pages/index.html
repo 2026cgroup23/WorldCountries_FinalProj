@@ -1,0 +1,642 @@
+﻿<!DOCTYPE html>
+<html lang="he"
+      dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>דף הבית</title>
+
+    <link rel="stylesheet"
+          href="../Styles/index.css?v=8">
+
+    <link rel="icon" type="image/png" href="/Assets/favicon.png">
+
+</head>
+
+<body>
+
+    <header class="main-header">
+
+        <a href="index.html"
+           class="site-brand">
+
+            <span class="brand-icon"
+                  aria-hidden="true">
+                🌍
+            </span>
+
+            <span class="brand-text">
+
+                <strong>
+                    World Countries
+                </strong>
+
+                <small>
+                    Explore · Learn · Connect
+                </small>
+
+            </span>
+
+        </a>
+
+        <nav class="main-navigation"
+             id="mainNavigation"
+             aria-label="ניווט ראשי">
+
+            <a href="index.html"
+               class="active"
+               aria-current="page">
+                דף הבית
+            </a>
+
+            <a href="countries.html"
+               id="countriesLink">
+                מדינות
+            </a>
+
+            <a href="my-lists.html"
+               id="listsLink">
+                הרשימות שלי
+            </a>
+
+            <a href="shares.html"
+               id="sharesLink">
+                שיתופים
+            </a>
+
+            <a href="#"
+               id="quizzesLink">
+                חידונים
+            </a>
+
+            <a href="admin-users.html"
+               id="adminLink"
+               hidden>
+                ניהול
+            </a>
+
+        </nav>
+
+        <div class="header-actions">
+
+            <button type="button"
+                    id="mobileMenuButton"
+                    class="mobile-menu-button"
+                    aria-label="פתיחת תפריט">
+                ☰
+            </button>
+
+            <div class="user-area">
+
+                <button type="button"
+                        id="userMenuButton"
+                        class="user-menu-button"
+                        aria-expanded="false"
+                        aria-controls="userDropdown">
+
+                    <span class="user-avatar"
+                          id="userAvatar">
+                        U
+                    </span>
+
+                    <span class="user-summary">
+
+                        <strong id="headerUserName">
+                            משתמש
+                        </strong>
+
+                        <small id="headerUserRole">
+                            User
+                        </small>
+
+                    </span>
+
+                    <span class="dropdown-arrow"
+                          aria-hidden="true">
+                        ⌄
+                    </span>
+
+                </button>
+
+                <div id="userDropdown"
+                     class="user-dropdown">
+
+                    <a href="profile.html?mode=view">
+                        הפרופיל שלי
+                    </a>
+
+                    <a href="profile.html?mode=edit">
+                        עריכת פרטים
+                    </a>
+
+                    <a href="profile.html?mode=preferences">
+                        ההעדפות שלי
+                    </a>
+
+                    <button type="button"
+                            id="logoutButton">
+                        התנתקות
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <main class="index-page">
+
+        <section class="hero-section">
+
+            <div class="hero-content">
+
+                <span class="hero-label">
+                    המסע שלך מסביב לעולם מתחיל כאן
+                </span>
+
+                <h1>
+
+                    <span id="greetingText">
+                        שלום
+                    </span>,
+
+                    <span id="welcomeUserName">
+                        משתמש
+                    </span>
+
+                </h1>
+
+                <p>
+                    גלה מדינות חדשות, למד על תרבויות,
+                    שמור יעדים ושתף חוויות עם הקהילה.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a href="countries.html"
+                       id="exploreCountriesButton"
+                       class="primary-action">
+                        התחילו לחקור
+                    </a>
+
+                    <a href="my-lists.html"
+                       id="myListsButton"
+                       class="secondary-action">
+                        הרשימות שלי
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-visual"
+                 aria-hidden="true">
+
+                <div class="globe-container">
+
+                    <div class="globe-core">
+                        🌍
+                    </div>
+
+                    <span class="orbit orbit-one"></span>
+
+                    <span class="orbit orbit-two"></span>
+
+                    <span class="orbit orbit-three"></span>
+
+                    <span class="orbit-dot orbit-dot-one"></span>
+
+                    <span class="orbit-dot orbit-dot-two"></span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <div id="pageMessage"
+             class="page-message"
+             role="status"
+             aria-live="polite">
+        </div>
+
+        <section class="user-status-card"
+                 id="userStatusCard">
+
+            <div class="status-content">
+
+                <span class="status-icon"
+                      id="statusIcon"
+                      aria-hidden="true">
+                    ✦
+                </span>
+
+                <div>
+
+                    <h2 id="accountStatusTitle">
+                        החשבון שלך מחובר
+                    </h2>
+
+                    <p>
+                        מחובר כ־
+
+                        <strong id="connectedUserEmail">
+                            user@example.com
+                        </strong>
+                    </p>
+
+                </div>
+
+            </div>
+
+            <span class="status-badge"
+                  id="accountStatusBadge">
+                פעיל
+            </span>
+
+        </section>
+
+        <section class="share-permission-card"
+                 id="sharePermissionCard">
+
+            <div class="share-permission-content">
+
+                <span class="share-permission-icon"
+                      id="sharePermissionIcon"
+                      aria-hidden="true">
+                    💬
+                </span>
+
+                <div>
+
+                    <h2 id="sharePermissionTitle">
+                        הרשאת שיתוף פעילה
+                    </h2>
+
+                    <p id="sharePermissionText">
+                        באפשרותך לפרסם מחשבות, המלצות וביקורות.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <span class="share-permission-badge"
+                  id="sharePermissionBadge">
+                מאושר
+            </span>
+
+        </section>
+
+        <section class="preferences-summary-card">
+
+            <div class="preferences-summary-content">
+
+                <span class="preferences-summary-icon"
+                      aria-hidden="true">
+                    ⚙️
+                </span>
+
+                <div>
+
+                    <h2>
+                        ההעדפות האישיות שלך
+                    </h2>
+
+                    <p>
+                        בחר יבשות מועדפות והוסף את השפות שאתה דובר.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <a href="profile.html?mode=preferences"
+               class="preferences-summary-link">
+                ניהול העדפות
+            </a>
+
+        </section>
+
+        <section class="quick-actions-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        גישה מהירה
+                    </span>
+
+                    <h2>
+                        מה תרצה לעשות היום?
+                    </h2>
+
+                </div>
+
+            </div>
+
+            <div class="quick-actions-grid">
+
+                <article class="action-card">
+
+                    <span class="action-icon"
+                          aria-hidden="true">
+                        🧭
+                    </span>
+
+                    <h3>
+                        גילוי מדינות
+                    </h3>
+
+                    <p>
+                        חפש, סנן והשווה בין מדינות מכל העולם.
+                    </p>
+
+                    <a href="countries.html"
+                       class="action-link">
+                        לצפייה במדינות
+                    </a>
+
+                </article>
+
+                <article class="action-card">
+
+                    <span class="action-icon"
+                          aria-hidden="true">
+                        📍
+                    </span>
+
+                    <h3>
+                        הרשימות שלי
+                    </h3>
+
+                    <p>
+                        נהל מדינות שביקרת בהן ויעדים שתרצה לבקר בהם.
+                    </p>
+
+                    <a href="my-lists.html"
+                       class="action-link">
+                        לפתיחת הרשימות
+                    </a>
+
+                </article>
+
+                <article class="action-card"
+                         id="sharesActionCard">
+
+                    <span class="action-icon"
+                          aria-hidden="true">
+                        💬
+                    </span>
+
+                    <h3>
+                        קהילה ושיתופים
+                    </h3>
+
+                    <p id="sharesActionDescription">
+                        קרא המלצות, ביקורות ומחשבות של משתמשים אחרים.
+                    </p>
+
+                    <a href="shares.html"
+                       class="action-link"
+                       id="sharesActionLink">
+                        לצפייה בשיתופים
+                    </a>
+
+                </article>
+
+                <article class="action-card">
+
+                    <span class="action-icon"
+                          aria-hidden="true">
+                        🏆
+                    </span>
+
+                    <h3>
+                        חידוני עולם
+                    </h3>
+
+                    <p>
+                        בדוק את הידע שלך, צבור נקודות ושפר את התוצאה.
+                    </p>
+
+                    <a href="#"
+                       class="action-link">
+                        להתחלת חידון
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <section class="latest-shares-section"
+                 id="latestSharesSection"
+                 aria-labelledby="latestSharesTitle">
+
+            <div class="section-header latest-shares-header">
+
+                <div>
+
+                    <span class="section-label">
+                        מה חדש בקהילה?
+                    </span>
+
+                    <h2 id="latestSharesTitle">
+                        שיתופים אחרונים
+                    </h2>
+
+                    <p class="section-description">
+                        חוויות, המלצות וטיפים חדשים שפורסמו
+                        על ידי חברי הקהילה.
+                    </p>
+
+                </div>
+
+                <a href="shares.html"
+                   class="view-all-shares-link">
+                    לכל השיתופים
+                </a>
+
+            </div>
+
+            <!-- LOADING -->
+
+            <div id="latestSharesLoading"
+                 class="latest-shares-state"
+                 role="status"
+                 aria-live="polite">
+
+                <span class="loading-spinner"
+                      aria-hidden="true">
+                </span>
+
+                <p>
+                    טוען את השיתופים האחרונים...
+                </p>
+
+            </div>
+
+            <!-- SHARES GRID -->
+
+            <div id="latestSharesGrid"
+                 class="latest-shares-grid"
+                 hidden>
+            </div>
+
+            <!-- EMPTY STATE -->
+
+            <div id="latestSharesEmpty"
+                 class="latest-shares-state"
+                 hidden>
+
+                <span class="latest-shares-state-icon"
+                      aria-hidden="true">
+                    💬
+                </span>
+
+                <h3>
+                    עדיין אין שיתופים
+                </h3>
+
+                <p>
+                    השיתוף הראשון שיפורסם במערכת יופיע כאן.
+                </p>
+
+                <a href="shares.html"
+                   class="latest-shares-state-link">
+                    מעבר לעמוד השיתופים
+                </a>
+
+            </div>
+
+            <!-- ERROR STATE -->
+
+            <div id="latestSharesError"
+                 class="latest-shares-state latest-shares-error"
+                 role="alert"
+                 hidden>
+
+                <span class="latest-shares-state-icon"
+                      aria-hidden="true">
+                    ⚠️
+                </span>
+
+                <h3>
+                    לא הצלחנו לטעון את השיתופים
+                </h3>
+
+                <p id="latestSharesErrorText">
+                    אירעה שגיאה בטעינת השיתופים האחרונים.
+                </p>
+
+                <button type="button"
+                        id="retryLatestSharesButton"
+                        class="retry-latest-shares-button">
+                    נסה שוב
+                </button>
+
+            </div>
+
+        </section>
+
+        <section class="admin-section"
+                 id="adminSection"
+                 hidden>
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        ניהול מערכת
+                    </span>
+
+                    <h2>
+                        אזור מנהל
+                    </h2>
+
+                </div>
+
+            </div>
+
+            <div class="admin-grid">
+
+                <article class="admin-card">
+
+                    <span class="admin-icon"
+                          aria-hidden="true">
+                        👥
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            ניהול משתמשים
+                        </h3>
+
+                        <p>
+                            צפייה, נעילה, שחרור וניהול הרשאות שיתוף.
+                        </p>
+
+                    </div>
+
+                    <a href="admin-users.html">
+                        כניסה לניהול
+                    </a>
+
+                </article>
+
+                <article class="admin-card">
+
+                    <span class="admin-icon"
+                          aria-hidden="true">
+                        📊
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            סטטיסטיקות
+                        </h3>
+
+                        <p>
+                            צפייה בנתוני השימוש במערכת.
+                        </p>
+
+                    </div>
+
+                    <a href="admin-users.html">
+                        צפייה בנתונים
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+
+        <p>
+            © 2026 World Countries
+        </p>
+
+    </footer>
+
+    <script src="../JS/index.js?v=6"></script>
+
+</body>
+
+</html>

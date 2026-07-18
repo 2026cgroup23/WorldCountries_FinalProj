@@ -1,0 +1,490 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>הרשימות שלי</title>
+
+    <link rel="stylesheet"
+          href="../Styles/my-lists.css?v=2">
+
+    <link rel="icon" type="image/png" href="/Assets/favicon.png">
+
+</head>
+
+<body>
+
+    <header class="main-header">
+
+        <a href="index.html"
+           class="site-brand">
+
+            <span class="brand-icon">
+                🌍
+            </span>
+
+            <span class="brand-text">
+
+                <strong>
+                    World Countries
+                </strong>
+
+                <small>
+                    Explore · Learn · Connect
+                </small>
+
+            </span>
+
+        </a>
+
+        <nav class="main-navigation"
+             id="mainNavigation"
+             aria-label="ניווט ראשי">
+
+            <a href="index.html">
+                דף הבית
+            </a>
+
+            <a href="countries.html">
+                מדינות
+            </a>
+
+            <a href="my-lists.html"
+               class="active"
+               aria-current="page">
+                הרשימות שלי
+            </a>
+
+            <a href="shares.html">
+                שיתופים
+            </a>
+
+            <a href="#">
+                חידונים
+            </a>
+
+            <a href="admin-users.html"
+               id="adminLink"
+               hidden>
+                ניהול
+            </a>
+
+        </nav>
+
+        <div class="header-actions">
+
+            <button type="button"
+                    id="mobileMenuButton"
+                    class="mobile-menu-button"
+                    aria-label="פתיחת תפריט">
+                ☰
+            </button>
+
+            <div class="user-area">
+
+                <button type="button"
+                        id="userMenuButton"
+                        class="user-menu-button"
+                        aria-expanded="false"
+                        aria-controls="userDropdown">
+
+                    <span class="user-avatar"
+                          id="userAvatar">
+                        U
+                    </span>
+
+                    <span class="user-summary">
+
+                        <strong id="headerUserName">
+                            משתמש
+                        </strong>
+
+                        <small id="headerUserRole">
+                            User
+                        </small>
+
+                    </span>
+
+                    <span class="dropdown-arrow"
+                          aria-hidden="true">
+                        ⌄
+                    </span>
+
+                </button>
+
+                <div id="userDropdown"
+                     class="user-dropdown">
+
+                    <a href="profile.html?mode=view">
+                        הפרופיל שלי
+                    </a>
+
+                    <a href="profile.html?mode=edit">
+                        עריכת פרטים
+                    </a>
+
+                    <a href="profile.html?mode=preferences">
+                        ההעדפות שלי
+                    </a>
+
+                    <button type="button"
+                            id="logoutButton">
+                        התנתקות
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <main class="my-lists-page">
+
+        <section class="lists-hero">
+
+            <div class="hero-content">
+
+                <span class="section-label">
+                    המסע האישי שלך
+                </span>
+
+                <h1>
+                    הרשימות שלי
+                </h1>
+
+                <p>
+                    נהל את המדינות שבהן ביקרת ואת היעדים
+                    שאליהם תרצה להגיע בעתיד.
+                </p>
+
+                <div class="hero-statistics">
+
+                    <article>
+
+                        <span aria-hidden="true">
+                            🌍
+                        </span>
+
+                        <div>
+
+                            <strong id="totalSavedCountries">
+                                0
+                            </strong>
+
+                            <small>
+                                מדינות שמורות
+                            </small>
+
+                        </div>
+
+                    </article>
+
+                    <article>
+
+                        <span aria-hidden="true">
+                            ✓
+                        </span>
+
+                        <div>
+
+                            <strong id="visitedCountriesCount">
+                                0
+                            </strong>
+
+                            <small>
+                                מדינות שביקרתי
+                            </small>
+
+                        </div>
+
+                    </article>
+
+                    <article>
+
+                        <span aria-hidden="true">
+                            ♡
+                        </span>
+
+                        <div>
+
+                            <strong id="wishlistCountriesCount">
+                                0
+                            </strong>
+
+                            <small>
+                                רוצה לבקר
+                            </small>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+            <div class="hero-visual"
+                 aria-hidden="true">
+
+                <div class="journey-visual">
+
+                    <span class="journey-globe">
+                        🌐
+                    </span>
+
+                    <span class="journey-point point-one">
+                        ✦
+                    </span>
+
+                    <span class="journey-point point-two">
+                        ✦
+                    </span>
+
+                    <span class="journey-path"></span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="lists-controls"
+                 aria-labelledby="listsTitle">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        המדינות שלי
+                    </span>
+
+                    <h2 id="listsTitle">
+                        ניהול הרשימות
+                    </h2>
+
+                </div>
+
+                <button type="button"
+                        id="refreshListsButton"
+                        class="refresh-button">
+
+                    <span aria-hidden="true">
+                        ↻
+                    </span>
+
+                    רענון
+
+                </button>
+
+            </div>
+
+            <div class="tabs-container"
+                 role="tablist"
+                 aria-label="סוג רשימה">
+
+                <button type="button"
+                        class="list-tab active"
+                        id="allTab"
+                        data-list-type="all"
+                        role="tab"
+                        aria-selected="true">
+
+                    <span aria-hidden="true">
+                        🌍
+                    </span>
+
+                    הכל
+
+                    <span id="allTabCount"
+                          class="tab-count">
+                        0
+                    </span>
+
+                </button>
+
+                <button type="button"
+                        class="list-tab"
+                        id="visitedTab"
+                        data-list-type="1"
+                        role="tab"
+                        aria-selected="false">
+
+                    <span aria-hidden="true">
+                        ✓
+                    </span>
+
+                    ביקרתי
+
+                    <span id="visitedTabCount"
+                          class="tab-count">
+                        0
+                    </span>
+
+                </button>
+
+                <button type="button"
+                        class="list-tab"
+                        id="wishlistTab"
+                        data-list-type="2"
+                        role="tab"
+                        aria-selected="false">
+
+                    <span aria-hidden="true">
+                        ♡
+                    </span>
+
+                    רוצה לבקר
+
+                    <span id="wishlistTabCount"
+                          class="tab-count">
+                        0
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <div id="pageMessage"
+             class="page-message"
+             role="status"
+             aria-live="polite">
+        </div>
+
+        <section class="lists-results">
+
+            <div class="results-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        תוצאות
+                    </span>
+
+                    <h2 id="currentListTitle">
+                        כל המדינות השמורות
+                    </h2>
+
+                </div>
+
+                <span id="resultsCount"
+                      class="results-count">
+                    0 תוצאות
+                </span>
+
+            </div>
+
+            <div id="loadingState"
+                 class="loading-state">
+
+                <div class="spinner"></div>
+
+                <p>
+                    טוען את הרשימות שלך...
+                </p>
+
+            </div>
+
+            <div id="countriesGrid"
+                 class="countries-grid"
+                 hidden>
+            </div>
+
+            <div id="emptyState"
+                 class="empty-state"
+                 hidden>
+
+                <span id="emptyStateIcon"
+                      aria-hidden="true">
+                    🗺️
+                </span>
+
+                <h3 id="emptyStateTitle">
+                    הרשימה עדיין ריקה
+                </h3>
+
+                <p id="emptyStateText">
+                    הוסף מדינות דרך עמוד פרטי המדינה.
+                </p>
+
+                <a href="countries.html">
+                    גילוי מדינות
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="removeModal"
+         class="remove-modal"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="removeModalTitle"
+         hidden>
+
+        <div class="remove-modal-overlay"
+             id="removeModalOverlay">
+        </div>
+
+        <div class="remove-modal-dialog">
+
+            <span class="remove-modal-icon"
+                  aria-hidden="true">
+                🗑️
+            </span>
+
+            <span class="section-label">
+                הסרה מהרשימה
+            </span>
+
+            <h2 id="removeModalTitle">
+                הסרת מדינה
+            </h2>
+
+            <p id="removeModalText">
+                האם להסיר את המדינה מהרשימה?
+            </p>
+
+            <div class="remove-modal-actions">
+
+                <button type="button"
+                        id="cancelRemoveButton"
+                        class="cancel-button">
+                    ביטול
+                </button>
+
+                <button type="button"
+                        id="approveRemoveButton"
+                        class="approve-remove-button">
+                    הסר מהרשימה
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer class="main-footer">
+
+        <p>
+            © 2026 World Countries
+        </p>
+
+    </footer>
+
+    <script src="../JS/my-lists.js?v=1"></script>
+
+</body>
+
+</html>

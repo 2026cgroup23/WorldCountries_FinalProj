@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>התחברות</title>
+
+    <link rel="stylesheet" href="../Styles/login.css?v=1">
+    <link rel="icon" type="image/png" href="/Assets/favicon.png">
+
+
+</head>
+
+<body>
+    <main class="login-page">
+        <section class="login-card">
+            <div class="login-header">
+                <h1>ברוכים השבים</h1>
+                <p>התחברו והמשיכו לחקור את העולם</p>
+            </div>
+
+            <form id="loginForm" novalidate>
+                <div class="form-group">
+                    <label for="email">כתובת דוא"ל</label>
+
+                    <input type="email"
+                           id="email"
+                           name="email"
+                           placeholder="example@email.com"
+                           autocomplete="email">
+
+                    <span id="emailError" class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">סיסמה</label>
+
+                    <div class="password-wrapper">
+                        <input type="password"
+                               id="password"
+                               name="password"
+                               placeholder="הכנס סיסמה"
+                               autocomplete="current-password">
+
+                        <button type="button"
+                                id="togglePassword"
+                                class="toggle-password"
+                                aria-label="הצג או הסתר סיסמה">
+                            הצג
+                        </button>
+                    </div>
+
+                    <span id="passwordError" class="error-message"></span>
+                </div>
+
+                <div id="serverMessage" class="server-message"></div>
+
+                <button type="submit"
+                        id="loginButton"
+                        class="login-button">
+                    התחברות
+                </button>
+            </form>
+
+            <p class="register-link">
+                עדיין אין לך חשבון?
+                <a href="register.html">הירשם כאן</a>
+            </p>
+        </section>
+    </main>
+
+    <script src="../JS/login.js"></script>
+</body>
+</html>
