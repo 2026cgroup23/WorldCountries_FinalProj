@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="he"
+      dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>תכונות מתקדמות</title>
+
+    <link rel="stylesheet"
+          href="../Styles/advanced.css?v=1">
+
+    <link rel="icon" type="image/png" href="../Assets/favicon.png">
+
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <header class="quiz-topbar">
+
+        <a href="index.html" class="quiz-brand">
+            <span aria-hidden="true">🌍</span>
+            <strong>World Countries</strong>
+        </a>
+
+        <div class="quiz-top-actions">
+
+            <a href="index.html" class="quiz-back">
+                → חזרה לדף הבית
+            </a>
+
+            <span class="quiz-user">
+                <span class="user-avatar" id="userAvatar">U</span>
+                <span id="headerUserName">משתמש</span>
+            </span>
+
+            <button type="button" id="logoutButton" class="quiz-logout">
+                התנתקות
+            </button>
+
+        </div>
+
+    </header>
+
+    <main class="adv-main">
+
+        <div class="adv-intro center">
+            <div class="game-emblem" aria-hidden="true">🚀</div>
+            <h1>תכונות מתקדמות</h1>
+            <p>
+                מעבר לניהול המדינות והמשתמשים, המערכת כוללת מודולים
+                גאוגרפיים אינטראקטיביים המבוססים על נתוני המיקום
+                (קווי אורך ורוחב), הדגלים והרשימות האישיות של המשתמש.
+            </p>
+        </div>
+
+        <div class="adv-grid">
+
+            <!-- INTERACTIVE MAP -->
+            <article class="adv-card">
+                <div class="adv-card-emblem" aria-hidden="true">🗺️</div>
+                <h2>מפת העולם האינטראקטיבית</h2>
+                <p class="adv-card-desc">
+                    מפה חיה (מבוססת Leaflet + OpenStreetMap) שמציגה את כל
+                    מדינות העולם כסמנים צבועים לפי יבשת. אפשר לסנן לפי
+                    יבשת, להדגיש את המדינות ששמרתם ב"הרשימות שלי", וללחוץ
+                    על כל מדינה כדי לראות דגל, בירה, אוכלוסייה וקישור לפרטים.
+                </p>
+                <ul class="adv-card-meta">
+                    <li>📍 סימון בירות ומדינות שנשמרו</li>
+                    <li>🎨 צבע לפי יבשת</li>
+                    <li>🔎 סינון וזום</li>
+                </ul>
+                <a href="map.html" class="btn btn-primary">פתח את המפה</a>
+            </article>
+
+            <!-- GEO GAME -->
+            <article class="adv-card">
+                <div class="adv-card-emblem" aria-hidden="true">🎯</div>
+                <h2>משחק "אתר את המדינה"</h2>
+                <p class="adv-card-desc">
+                    משחק גאוגרפי מקורי בהשראת GeoGuessr: מקבלים שם ודגל
+                    של מדינה ולוחצים על המפה במקום שבו לדעתכם היא נמצאת.
+                    הניקוד מחושב לפי המרחק האמיתי (נוסחת Haversine) בין
+                    הלחיצה למיקום האמיתי — הכול נגד השעון.
+                </p>
+                <ul class="adv-card-meta">
+                    <li>⏱️ 15–25 שניות לסבב</li>
+                    <li>🌐 ניקוד לפי מרחק</li>
+                    <li>🏆 שיא אישי + שמירה ל-DB</li>
+                </ul>
+                <a href="geo-game.html" class="btn btn-primary">שחק עכשיו</a>
+            </article>
+
+            <!-- AI DESTINATION FINDER -->
+            <article class="adv-card">
+                <div class="adv-card-emblem" aria-hidden="true">🤖</div>
+                <h2>מגלה יעדים חכם (AI)</h2>
+                <p class="adv-card-desc">
+                    מודול בינה מלאכותית חינמי (Transformers.js) שרץ ישירות
+                    בדפדפן ללא שרת וללא מפתח. כותבים בשפה חופשית מה מחפשים,
+                    והמודל מדרג את המדינות לפי דמיון סמנטי (embeddings) —
+                    חיפוש לפי משמעות ולא לפי מילות מפתח.
+                </p>
+                <ul class="adv-card-meta">
+                    <li>🧠 מודל שפה אמיתי בדפדפן</li>
+                    <li>🆓 חינמי, בלי מפתח API</li>
+                    <li>🎯 דירוג לפי דמיון סמנטי</li>
+                </ul>
+                <a href="ai-finder.html" class="btn btn-primary">נסה את ה-AI</a>
+            </article>
+
+            <!-- QUIZZES (already existing) -->
+            <article class="adv-card">
+                <div class="adv-card-emblem" aria-hidden="true">🏆</div>
+                <h2>חידוני עולם מתוזמנים</h2>
+                <p class="adv-card-desc">
+                    שני חידונים אינטראקטיביים נוספים: "קרב מדינות"
+                    (גבוה/נמוך) ו"המדינה המסתורית" (ניחוש לפי רמזים
+                    מתגלים). כל המשחקים מתוזמנים, צוברים נקודות ושומרים
+                    שיא אישי.
+                </p>
+                <ul class="adv-card-meta">
+                    <li>⚡ משחק רפלקסים</li>
+                    <li>🧠 משחק היגיון</li>
+                    <li>🎲 שאלות אקראיות</li>
+                </ul>
+                <a href="quizzes.html" class="btn btn-ghost">למרכז החידונים</a>
+            </article>
+
+        </div>
+
+        <section class="adv-note">
+            <h3>🤖 על מודול ה-AI</h3>
+            <p>
+                המודול משתמש במודל <strong>all-MiniLM-L6-v2</strong> דרך
+                ספריית Transformers.js של Hugging Face. המודל (~25MB) יורד
+                פעם אחת בהפעלה הראשונה ונשמר במטמון הדפדפן — לאחר מכן הכול
+                רץ מקומית, גם ללא אינטרנט.
+            </p>
+        </section>
+
+    </main>
+
+    <script src="../JS/advanced.js?v=1"></script>
+
+</body>
+
+</html>

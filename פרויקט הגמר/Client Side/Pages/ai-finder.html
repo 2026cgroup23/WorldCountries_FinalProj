@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="he"
+      dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>מגלה יעדים חכם (AI)</title>
+
+    <link rel="stylesheet"
+          href="../Styles/ai-finder.css?v=1">
+
+    <link rel="icon" type="image/png" href="../Assets/favicon.png">
+
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <header class="quiz-topbar">
+
+        <a href="advanced.html" class="quiz-brand">
+            <span aria-hidden="true">🌍</span>
+            <strong>World Countries</strong>
+        </a>
+
+        <div class="quiz-top-actions">
+
+            <a href="advanced.html" class="quiz-back">
+                → תכונות מתקדמות
+            </a>
+
+            <span class="quiz-user">
+                <span class="user-avatar" id="userAvatar">U</span>
+                <span id="headerUserName">משתמש</span>
+            </span>
+
+            <button type="button" id="logoutButton" class="quiz-logout">
+                התנתקות
+            </button>
+
+        </div>
+
+    </header>
+
+    <main class="ai-main">
+
+        <div class="ai-intro center">
+            <div class="game-emblem" aria-hidden="true">🤖</div>
+            <h1>מגלה יעדים חכם</h1>
+            <p>
+                תארו במילים שלכם את היעד המושלם — מודל בינה מלאכותית
+                (Transformers.js) שרץ ישירות בדפדפן ידרג עבורכם את
+                המדינות המתאימות ביותר לפי משמעות, לא לפי מילות מפתח.
+            </p>
+        </div>
+
+        <section class="ai-panel">
+
+            <label class="ai-label" for="queryInput">מה מתאים לכם?</label>
+
+            <textarea id="queryInput" class="ai-textarea" rows="3"
+                placeholder="לדוגמה: מדינה טרופית קטנה עם חופים, או מדינה קרה והרמונית באירופה..."></textarea>
+
+            <div class="ai-examples" id="exampleChips">
+                <button type="button" class="chip" data-q="A small tropical island country with warm beaches">🏝️ אי טרופי קטן</button>
+                <button type="button" class="chip" data-q="A cold northern European country with a small population">❄️ מדינה קרה בצפון אירופה</button>
+                <button type="button" class="chip" data-q="A huge country in Asia with a very large population">🐉 מדינה ענקית באסיה</button>
+                <button type="button" class="chip" data-q="A Spanish speaking country in South America">💃 מדינה דוברת ספרדית בדרום אמריקה</button>
+                <button type="button" class="chip" data-q="A desert country in Africa">🏜️ מדינה מדברית באפריקה</button>
+            </div>
+
+            <div class="ai-actions">
+                <button type="button" id="findButton" class="btn btn-primary">
+                    מצא יעדים ✨
+                </button>
+                <span class="ai-status" id="aiStatus"></span>
+            </div>
+
+            <div class="ai-hint" id="firstRunHint">
+                💡 בהפעלה הראשונה המודל (~25MB) יורד פעם אחת ונשמר במטמון
+                הדפדפן. דרוש חיבור אינטרנט בפעם הראשונה.
+            </div>
+
+        </section>
+
+        <div id="aiError" class="ai-error" hidden></div>
+
+        <section id="aiResults" class="ai-results"></section>
+
+    </main>
+
+    <script src="../JS/ai-finder.js?v=2"></script>
+
+</body>
+
+</html>

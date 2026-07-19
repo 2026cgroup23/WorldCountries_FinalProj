@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="he"
+      dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>מפת העולם</title>
+
+    <!-- Leaflet (open-source interactive maps) -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <link rel="stylesheet"
+          href="../Styles/map.css?v=1">
+
+    <link rel="icon" type="image/png" href="../Assets/favicon.png">
+
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <header class="quiz-topbar">
+
+        <a href="advanced.html" class="quiz-brand">
+            <span aria-hidden="true">🌍</span>
+            <strong>World Countries</strong>
+        </a>
+
+        <div class="quiz-top-actions">
+
+            <a href="advanced.html" class="quiz-back">
+                → תכונות מתקדמות
+            </a>
+
+            <span class="quiz-user">
+                <span class="user-avatar" id="userAvatar">U</span>
+                <span id="headerUserName">משתמש</span>
+            </span>
+
+            <button type="button" id="logoutButton" class="quiz-logout">
+                התנתקות
+            </button>
+
+        </div>
+
+    </header>
+
+    <main class="map-main">
+
+        <div class="map-head">
+            <div>
+                <h1>מפת העולם האינטראקטיבית</h1>
+                <p id="mapStatus">טוען מדינות...</p>
+            </div>
+
+            <div class="map-controls">
+
+                <label class="control">
+                    <span>יבשת</span>
+                    <select id="continentSelect">
+                        <option value="">כל היבשות</option>
+                    </select>
+                </label>
+
+                <label class="control checkbox">
+                    <input type="checkbox" id="savedOnly">
+                    <span>רק המדינות שנשמרו</span>
+                </label>
+
+            </div>
+        </div>
+
+        <div id="mapMessage" class="map-error" hidden></div>
+
+        <div id="worldMap"></div>
+
+        <div class="map-legend" id="mapLegend"></div>
+
+    </main>
+
+    <!-- Leaflet library -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script src="../JS/map.js?v=1"></script>
+
+</body>
+
+</html>

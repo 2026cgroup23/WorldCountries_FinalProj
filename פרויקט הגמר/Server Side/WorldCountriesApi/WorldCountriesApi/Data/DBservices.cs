@@ -3343,5 +3343,111 @@ namespace WorldCountriesApi.Data
             return share;
         }
 
+        // QUIZ GAMES (Country Clash / Mystery Country)
+        public int AddQuizAttempt(
+            string quizTitle,
+            int userId,
+            int score,
+            int correctAnswers,
+            int totalQuestions,
+            int timeTakenSeconds)
+        {
+            SqlConnection connection = Connect();
+
+            Dictionary<string, object> parameters =
+                new Dictionary<string, object>();
+
+            parameters.Add("@QuizTitle", quizTitle);
+            parameters.Add("@UserId", userId);
+            parameters.Add("@Score", score);
+            parameters.Add("@CorrectAnswers", correctAnswers);
+            parameters.Add("@TotalQuestions", totalQuestions);
+            parameters.Add("@TimeTakenSeconds", timeTakenSeconds);
+
+            SqlCommand command =
+                CreateCommandWithStoredProcedure(
+                    "sp_AddQuizAttempt",
+                    connection,
+                    parameters
+                );
+
+            try
+            {
+                object? result = command.ExecuteScalar();
+
+                connection.Close();
+
+                if (result == null || result == DBNull.Value)
+                {
+                    return 0;
+                }
+
+                return Convert.ToInt32(result);
+            }
+            catch (Exception)
+            {
+                connection.Close();
+                throw;
+            }
+        }
+
+        public List<QuizLeaderboardEntry> GetQuizLeaderboard(
+            string quizTitle,
+            int topN)
+        {
+            SqlConnection connection = Connect();
+
+            Dictionary<string, object> parameters =
+                new Dictionary<string, object>();
+
+            parameters.Add("@QuizTitle", quizTitle);
+            parameters.Add("@TopN", topN);
+
+            SqlCommand command =
+                CreateCommandWithStoredProcedure(
+                    "sp_GetQuizLeaderboard",
+                    connection,
+                    parameters
+                );
+
+            List<QuizLeaderboardEntry> entries =
+                new List<QuizLeaderboardEntry>();
+
+            try
+            {
+                SqlDataReader reader =
+                    command.ExecuteReader(
+                        CommandBehavior.CloseConnection
+                    );
+
+                while (reader.Read())
+                {
+                    QuizLeaderboardEntry entry =
+                        new QuizLeaderboardEntry();
+
+                    entry.UserId =
+                        Convert.ToInt32(reader["UserId"]);
+
+                    entry.FullName =
+                        reader["FullName"].ToString() ?? "";
+
+                    entry.BestScore =
+                        Convert.ToInt32(reader["BestScore"]);
+
+                    entry.Attempts =
+                        Convert.ToInt32(reader["Attempts"]);
+
+                    entries.Add(entry);
+                }
+
+                return entries;
+            }
+            catch (Exception)
+            {
+                connection.Close();
+                throw;
+            }
+        }
+
     }
 }

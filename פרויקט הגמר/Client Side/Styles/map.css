@@ -1,0 +1,297 @@
+/* ==========================================================================
+   map.css  —  Interactive world map page (Leaflet). Self-contained.
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-1: #0b1220;
+    --bg-2: #131f3a;
+    --card: rgba(255, 255, 255, 0.06);
+    --card-solid: #16223d;
+    --border: rgba(255, 255, 255, 0.12);
+    --text: #eef2ff;
+    --muted: #9fb0d0;
+    --accent: #38bdf8;
+    --accent-2: #818cf8;
+    --bad: #f87171;
+    --gold: #fbbf24;
+    --radius: 16px;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", "Rubik", system-ui, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(1200px 700px at 80% -10%, rgba(56, 189, 248, 0.18), transparent 60%),
+        linear-gradient(160deg, var(--bg-1), var(--bg-2));
+    background-attachment: fixed;
+}
+
+/* ---- Top bar (shared look) ---- */
+.quiz-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 24px;
+    background: rgba(9, 14, 27, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1200;
+}
+
+.quiz-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 1.05rem;
+}
+
+.quiz-brand span {
+    font-size: 1.5rem;
+}
+
+.quiz-top-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.quiz-back {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.92rem;
+    padding: 6px 10px;
+    border-radius: 10px;
+}
+
+.quiz-back:hover {
+    background: var(--card);
+    color: var(--text);
+}
+
+.quiz-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.user-avatar {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #06121f;
+    font-weight: 700;
+}
+
+.quiz-logout {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 7px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font: inherit;
+}
+
+.quiz-logout:hover {
+    border-color: var(--bad);
+    color: var(--bad);
+}
+
+/* ---- Layout ---- */
+.map-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 22px 20px 40px;
+}
+
+.map-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.map-head h1 {
+    margin: 0 0 4px;
+    font-size: 1.6rem;
+}
+
+.map-head p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.map-controls {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.control {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.control select {
+    font: inherit;
+    color: var(--text);
+    background: var(--card-solid);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 9px 12px;
+}
+
+.control.checkbox {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding-top: 18px;
+    cursor: pointer;
+}
+
+.control.checkbox input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+/* ---- Map ---- */
+#worldMap {
+    height: 68vh;
+    min-height: 440px;
+    width: 100%;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    background: #0d1526;
+}
+
+/* Leaflet popups themed to match the app */
+.leaflet-popup-content-wrapper {
+    background: var(--card-solid);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.leaflet-popup-tip {
+    background: var(--card-solid);
+    border: 1px solid var(--border);
+}
+
+.leaflet-popup-content {
+    margin: 12px 14px;
+    direction: rtl;
+}
+
+.map-popup {
+    text-align: center;
+    min-width: 170px;
+}
+
+.map-popup img {
+    width: 74px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    margin-bottom: 6px;
+}
+
+.map-popup h3 {
+    margin: 2px 0 6px;
+    font-size: 1.05rem;
+    color: var(--text);
+}
+
+.map-popup .row {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin: 2px 0;
+}
+
+.map-popup a {
+    display: inline-block;
+    margin-top: 8px;
+    color: #06121f;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    padding: 6px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* ---- Legend ---- */
+.map-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    margin-top: 16px;
+    padding: 14px 18px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.legend-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.legend-dot.saved {
+    background: transparent;
+    border: 3px solid var(--gold);
+}
+
+.map-error {
+    background: rgba(248, 113, 113, 0.12);
+    border: 1px solid var(--bad);
+    color: #fecaca;
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+}
+
+@media (max-width: 640px) {
+    .quiz-user span:not(.user-avatar) {
+        display: none;
+    }
+
+    #worldMap {
+        height: 60vh;
+    }
+}

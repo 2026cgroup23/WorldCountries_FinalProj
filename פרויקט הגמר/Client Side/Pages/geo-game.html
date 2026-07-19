@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="he"
+      dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>אתר את המדינה</title>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <link rel="stylesheet"
+          href="../Styles/geo-game.css?v=1">
+
+    <link rel="icon" type="image/png" href="../Assets/favicon.png">
+
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <header class="quiz-topbar">
+
+        <a href="advanced.html" class="quiz-brand">
+            <span aria-hidden="true">🌍</span>
+            <strong>World Countries</strong>
+        </a>
+
+        <div class="quiz-top-actions">
+
+            <a href="advanced.html" class="quiz-back">
+                → תכונות מתקדמות
+            </a>
+
+            <span class="quiz-user">
+                <span class="user-avatar" id="userAvatar">U</span>
+                <span id="headerUserName">משתמש</span>
+            </span>
+
+            <button type="button" id="logoutButton" class="quiz-logout">
+                התנתקות
+            </button>
+
+        </div>
+
+    </header>
+
+    <main class="geo-main">
+
+        <!-- ============ START SCREEN ============ -->
+        <section class="screen panel" id="screenStart">
+
+            <div class="center">
+                <div class="game-emblem" aria-hidden="true">🗺️</div>
+            </div>
+
+            <h1 class="screen-title">אתר את המדינה</h1>
+
+            <p class="screen-subtitle">
+                מקבלים שם ודגל של מדינה — ולוחצים על המפה במקום שבו
+                לדעתכם היא נמצאת. ככל שהלחיצה קרובה יותר למיקום האמיתי,
+                כך תזכו ביותר נקודות. בהצלחה, גאוגרפים! 🌐
+            </p>
+
+            <div class="field">
+                <label for="difficultySelect">רמת קושי</label>
+                <select id="difficultySelect">
+                    <option value="easy">קל · מדינות מוכרות, 5 סבבים, 25 שניות</option>
+                    <option value="medium" selected>בינוני · כל המדינות, 5 סבבים, 20 שניות</option>
+                    <option value="hard">קשה · כל המדינות, 7 סבבים, 15 שניות</option>
+                </select>
+            </div>
+
+            <p class="center best-line">
+                🏆 השיא שלך: <strong id="bestScoreStart">0</strong> נקודות
+            </p>
+
+            <div class="center">
+                <button type="button" id="startButton" class="btn btn-primary">
+                    התחל משחק
+                </button>
+            </div>
+
+            <div id="startMessage" class="feedback bad"></div>
+
+        </section>
+
+        <!-- ============ GAME SCREEN ============ -->
+        <section class="screen" id="screenGame" hidden>
+
+            <div class="stat-bar">
+
+                <div class="pill accent">
+                    <small>ניקוד</small>
+                    <strong id="scoreValue">0</strong>
+                </div>
+
+                <div class="pill gold">
+                    <small>סבב</small>
+                    <strong id="roundValue">1 / 5</strong>
+                </div>
+
+                <div class="timer-wrap">
+                    <div class="timer-track">
+                        <div class="timer-fill" id="timerFill"></div>
+                    </div>
+                    <div class="timer-text" id="timerText">0:20</div>
+                </div>
+
+            </div>
+
+            <div class="target-card" id="targetCard">
+                <img class="target-flag" id="targetFlag" alt="" src="">
+                <div class="target-body">
+                    <span class="target-label">איפה נמצאת:</span>
+                    <h2 class="target-name" id="targetName">—</h2>
+                    <span class="target-hint" id="targetHint"></span>
+                </div>
+                <div class="target-instruction">👆 לחץ על המפה</div>
+            </div>
+
+            <div id="geoMap"></div>
+
+            <div class="round-result" id="roundResult" hidden>
+                <span id="roundResultText"></span>
+                <button type="button" id="nextButton" class="btn btn-primary">
+                    הסבב הבא
+                </button>
+            </div>
+
+        </section>
+
+        <!-- ============ END SCREEN ============ -->
+        <section class="screen panel" id="screenEnd" hidden>
+
+            <div class="center">
+                <div class="game-emblem" aria-hidden="true">🏁</div>
+            </div>
+
+            <h2 class="screen-title">המשחק הסתיים!</h2>
+
+            <div class="big-score" id="finalScore">0</div>
+
+            <p class="center screen-subtitle" id="finalSummary">—</p>
+
+            <div class="center" id="recordWrap" hidden>
+                <span class="record-badge">🏆 שיא חדש!</span>
+            </div>
+
+            <div class="center end-actions">
+                <button type="button" id="playAgainButton" class="btn btn-primary">
+                    שחק שוב
+                </button>
+                <a href="advanced.html" class="btn btn-ghost">
+                    תכונות מתקדמות
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script src="../JS/geo-game.js?v=1"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="he"
+      dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>חידוני עולם</title>
+
+    <link rel="stylesheet"
+          href="../Styles/quizzes.css?v=1">
+
+    <link rel="icon" type="image/png" href="../Assets/favicon.png">
+
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <header class="quiz-topbar">
+
+        <a href="index.html" class="quiz-brand">
+            <span aria-hidden="true">🌍</span>
+            <strong>World Countries</strong>
+        </a>
+
+        <div class="quiz-top-actions">
+
+            <a href="index.html" class="quiz-back">
+                → חזרה לדף הבית
+            </a>
+
+            <span class="quiz-user">
+                <span class="user-avatar" id="userAvatar">U</span>
+                <span id="headerUserName">משתמש</span>
+            </span>
+
+            <button type="button" id="logoutButton" class="quiz-logout">
+                התנתקות
+            </button>
+
+        </div>
+
+    </header>
+
+    <main class="quiz-main">
+
+        <div class="hub-intro center">
+            <div class="game-emblem" aria-hidden="true">🏆</div>
+            <h1 class="screen-title">חידוני עולם</h1>
+            <p class="screen-subtitle">
+                בחר משחק, בדוק את הידע שלך על מדינות העולם ונסה לשבור
+                את השיא האישי שלך. כל המשחקים מתוזמנים ומשוחקים לבד.
+            </p>
+        </div>
+
+        <div class="hub-grid">
+
+            <!-- COUNTRY CLASH -->
+            <article class="game-card">
+                <div class="game-card-emblem" aria-hidden="true">🥊</div>
+                <h2>קרב מדינות</h2>
+                <p class="game-card-desc">
+                    דו-קרב מהיר: איזו מדינה גדולה יותר? בחר "גבוה" או
+                    "נמוך", בנה רצף וצבור נקודות נגד השעון.
+                </p>
+                <ul class="game-card-meta">
+                    <li>⏱️ 35–45 שניות</li>
+                    <li>⚡ משחק רפלקסים</li>
+                    <li>🏆 שיא: <strong id="bestClash">0</strong></li>
+                </ul>
+                <a href="quiz-clash.html" class="btn btn-primary">שחק עכשיו</a>
+            </article>
+
+            <!-- MYSTERY COUNTRY -->
+            <article class="game-card">
+                <div class="game-card-emblem" aria-hidden="true">🕵️</div>
+                <h2>המדינה המסתורית</h2>
+                <p class="game-card-desc">
+                    משחק בילוש: רמזים נחשפים אחד-אחד. נחש את המדינה מוקדם
+                    ככל האפשר כדי לשמור על יותר נקודות.
+                </p>
+                <ul class="game-card-meta">
+                    <li>⏱️ 45–60 שניות</li>
+                    <li>🧠 משחק היגיון</li>
+                    <li>🏆 שיא: <strong id="bestMystery">0</strong></li>
+                </ul>
+                <a href="quiz-mystery.html" class="btn btn-primary">שחק עכשיו</a>
+            </article>
+
+        </div>
+
+    </main>
+
+    <script src="../JS/quizzes.js?v=1"></script>
+
+</body>
+
+</html>

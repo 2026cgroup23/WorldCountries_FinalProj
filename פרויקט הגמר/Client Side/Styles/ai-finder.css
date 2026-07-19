@@ -1,0 +1,354 @@
+/* ==========================================================================
+   ai-finder.css  —  AI "Smart destination finder" page. Self-contained.
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-1: #0b1220;
+    --bg-2: #131f3a;
+    --card: rgba(255, 255, 255, 0.06);
+    --card-solid: #16223d;
+    --border: rgba(255, 255, 255, 0.12);
+    --text: #eef2ff;
+    --muted: #9fb0d0;
+    --accent: #38bdf8;
+    --accent-2: #818cf8;
+    --good: #34d399;
+    --bad: #f87171;
+    --gold: #fbbf24;
+    --radius: 18px;
+    --shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", "Rubik", system-ui, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(1200px 700px at 80% -10%, rgba(56, 189, 248, 0.18), transparent 60%),
+        radial-gradient(1000px 600px at 0% 110%, rgba(129, 140, 248, 0.18), transparent 55%),
+        linear-gradient(160deg, var(--bg-1), var(--bg-2));
+    background-attachment: fixed;
+}
+
+/* ---- Top bar ---- */
+.quiz-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 24px;
+    background: rgba(9, 14, 27, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.quiz-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 1.05rem;
+}
+
+.quiz-brand span {
+    font-size: 1.5rem;
+}
+
+.quiz-top-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.quiz-back {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.92rem;
+    padding: 6px 10px;
+    border-radius: 10px;
+}
+
+.quiz-back:hover {
+    background: var(--card);
+    color: var(--text);
+}
+
+.quiz-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.user-avatar {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #06121f;
+    font-weight: 700;
+}
+
+.quiz-logout {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 7px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font: inherit;
+}
+
+.quiz-logout:hover {
+    border-color: var(--bad);
+    color: var(--bad);
+}
+
+/* ---- Layout ---- */
+.ai-main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 36px 20px 60px;
+}
+
+.game-emblem {
+    font-size: 3rem;
+    margin-bottom: 6px;
+}
+
+.center {
+    text-align: center;
+}
+
+.ai-intro {
+    margin-bottom: 26px;
+}
+
+.ai-intro h1 {
+    margin: 0 0 10px;
+    font-size: 2rem;
+}
+
+.ai-intro p {
+    color: var(--muted);
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ---- Query panel ---- */
+.ai-panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+}
+
+.ai-label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.ai-textarea {
+    width: 100%;
+    font: inherit;
+    color: var(--text);
+    background: var(--card-solid);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    resize: vertical;
+}
+
+.ai-textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.ai-examples {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+}
+
+.chip {
+    font: inherit;
+    font-size: 0.85rem;
+    color: var(--text);
+    background: var(--card-solid);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 7px 14px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.chip:hover {
+    border-color: var(--accent);
+}
+
+.ai-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    font: inherit;
+    font-weight: 600;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: 13px 26px;
+    cursor: pointer;
+    transition: transform 0.12s, box-shadow 0.2s, opacity 0.2s;
+}
+
+.btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #06121f;
+    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+.ai-status {
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.ai-hint {
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
+
+.ai-error {
+    margin-top: 18px;
+    background: rgba(248, 113, 113, 0.12);
+    border: 1px solid var(--bad);
+    color: #fecaca;
+    padding: 12px 16px;
+    border-radius: 12px;
+}
+
+/* ---- Results ---- */
+.ai-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.ai-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.ai-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+}
+
+.ai-card-flag {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    background: #0d1526;
+    border-bottom: 1px solid var(--border);
+}
+
+.ai-card-body {
+    padding: 14px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.ai-card-rank {
+    font-size: 0.78rem;
+    color: var(--muted);
+}
+
+.ai-card h3 {
+    margin: 0;
+    font-size: 1.12rem;
+}
+
+.ai-card .ai-card-sub {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.match-bar {
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.09);
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+.match-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--good), var(--accent));
+}
+
+.match-label {
+    font-size: 0.8rem;
+    color: var(--good);
+    font-weight: 600;
+}
+
+.ai-card a {
+    margin-top: 8px;
+    text-align: center;
+    color: #06121f;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    padding: 8px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+    .quiz-user span:not(.user-avatar) {
+        display: none;
+    }
+
+    .ai-intro h1 {
+        font-size: 1.6rem;
+    }
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="he"
+      dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>המדינה המסתורית</title>
+
+    <link rel="stylesheet"
+          href="../Styles/quiz-mystery.css?v=1">
+
+    <link rel="icon" type="image/png" href="../Assets/favicon.png">
+
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <header class="quiz-topbar">
+
+        <a href="quizzes.html" class="quiz-brand">
+            <span aria-hidden="true">🌍</span>
+            <strong>World Countries</strong>
+        </a>
+
+        <div class="quiz-top-actions">
+
+            <a href="quizzes.html" class="quiz-back">
+                → חזרה לחידונים
+            </a>
+
+            <span class="quiz-user">
+                <span class="user-avatar" id="userAvatar">U</span>
+                <span id="headerUserName">משתמש</span>
+            </span>
+
+            <button type="button" id="logoutButton" class="quiz-logout">
+                התנתקות
+            </button>
+
+        </div>
+
+    </header>
+
+    <main class="quiz-main">
+
+        <!-- ============ START SCREEN ============ -->
+        <section class="screen panel" id="screenStart">
+
+            <div class="center">
+                <div class="game-emblem" aria-hidden="true">🕵️</div>
+            </div>
+
+            <h1 class="screen-title">המדינה המסתורית</h1>
+
+            <p class="screen-subtitle">
+                בכל סבב נחשפים רמזים על מדינה נסתרת, אחד אחרי השני.
+                ככל שתנחש מוקדם יותר — תזכה ביותר נקודות. כמה מדינות
+                תצליח לפצח לפני שהזמן ייגמר?
+            </p>
+
+            <div class="field">
+                <label for="difficultySelect">רמת קושי</label>
+                <select id="difficultySelect">
+                    <option value="easy">קל · 7 רמזים, מדינות מוכרות, 60 שניות</option>
+                    <option value="medium" selected>בינוני · 6 רמזים, כל המדינות, 50 שניות</option>
+                    <option value="hard">קשה · 5 רמזים, בלי דגל, 45 שניות</option>
+                </select>
+            </div>
+
+            <p class="center best-line">
+                🏆 השיא שלך: <strong id="bestScoreStart">0</strong> נקודות
+            </p>
+
+            <div class="center">
+                <button type="button" id="startButton" class="btn btn-primary">
+                    התחל משחק
+                </button>
+            </div>
+
+            <div id="startMessage" class="feedback bad"></div>
+
+        </section>
+
+        <!-- ============ GAME SCREEN ============ -->
+        <section class="screen panel" id="screenGame" hidden>
+
+            <div class="stat-bar">
+
+                <div class="pill accent">
+                    <small>ניקוד</small>
+                    <strong id="scoreValue">0</strong>
+                </div>
+
+                <div class="pill gold">
+                    <small>נפתרו ✅</small>
+                    <strong id="solvedValue">0</strong>
+                </div>
+
+                <div class="timer-wrap">
+                    <div class="timer-track">
+                        <div class="timer-fill" id="timerFill"></div>
+                    </div>
+                    <div class="timer-text" id="timerText">1:00</div>
+                </div>
+
+            </div>
+
+            <div class="mystery-head">
+                <h2 class="mystery-title">🔍 מדינה מסתורית</h2>
+                <div class="potential">
+                    שווי הסבב:
+                    <strong id="potentialValue">700</strong>
+                    נקודות
+                </div>
+            </div>
+
+            <div class="clue-list" id="clueList"></div>
+
+            <div id="loadingClue" class="clue-loading" hidden>טוען רמזים...</div>
+
+            <form class="guess-row" id="guessForm" autocomplete="off">
+                <input class="text-input" id="guessInput" list="countryNames"
+                       placeholder="הקלד שם מדינה באנגלית..." />
+                <datalist id="countryNames"></datalist>
+                <button type="submit" class="btn btn-primary" id="submitButton">נחש</button>
+            </form>
+
+            <div class="secondary-actions">
+                <button type="button" class="btn btn-ghost" id="revealButton">
+                    חשוף רמז נוסף (\u200E−100)
+                </button>
+                <button type="button" class="btn btn-ghost" id="skipButton">
+                    ויתור (חשוף תשובה)
+                </button>
+            </div>
+
+            <div id="roundFeedback" class="feedback"></div>
+
+        </section>
+
+        <!-- ============ END SCREEN ============ -->
+        <section class="screen panel" id="screenEnd" hidden>
+
+            <div class="center">
+                <div class="game-emblem" aria-hidden="true">🏁</div>
+            </div>
+
+            <h2 class="screen-title">הזמן נגמר!</h2>
+
+            <div class="big-score" id="finalScore">0</div>
+
+            <p class="center screen-subtitle">
+                פיצחת <strong id="finalSolved">0</strong> מדינות מסתוריות
+            </p>
+
+            <div class="center" id="recordWrap" hidden>
+                <span class="record-badge">🏆 שיא חדש!</span>
+            </div>
+
+            <div class="center end-actions">
+                <button type="button" id="playAgainButton" class="btn btn-primary">
+                    שחק שוב
+                </button>
+                <a href="quizzes.html" class="btn btn-ghost">
+                    חידונים אחרים
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="../JS/quiz-mystery.js?v=1"></script>
+
+</body>
+
+</html>
