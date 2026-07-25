@@ -1,13 +1,3 @@
-/* ==========================================================================
-   QuizGame_Setup.sql
-   Run this ONCE against the project database (igroup123_test2).
-   It seeds the two arcade quizzes into the existing Quizzes table and
-   creates the stored procedures used by QuizGameController:
-       - sp_AddQuizAttempt      (saves a finished game to QuizAttempts)
-       - sp_GetQuizLeaderboard  (top players by best score for a game)
-   Safe to re-run (uses IF NOT EXISTS / CREATE OR ALTER).
-   ========================================================================== */
-
 -- 1) Seed the two games as rows in the Quizzes table (matched by Title) -------
 IF NOT EXISTS (SELECT 1 FROM Quizzes WHERE Title = N'Country Clash')
 BEGIN
