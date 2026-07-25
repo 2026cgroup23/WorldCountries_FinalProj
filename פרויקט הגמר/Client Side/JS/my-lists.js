@@ -27,8 +27,8 @@ try {
 }
 
 
-const userCountryListsApiUrl = "https://localhost:7296/api/UserCountryLists";
-
+const userCountryListsApiUrl =
+    "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/UserCountryLists";
 let allSavedCountries = [];
 let displayedCountries = [];
 

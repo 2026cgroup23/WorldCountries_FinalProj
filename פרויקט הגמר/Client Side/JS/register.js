@@ -14,8 +14,8 @@ const serverMessage = document.getElementById("serverMessage");
 const registerButton = document.getElementById("registerButton");
 const togglePasswordButton = document.getElementById("togglePassword");
 
-const apiUrl = "https://localhost:7296/api/Users/register";
-
+const apiUrl =
+    "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/Users/register";
 togglePasswordButton.addEventListener("click", function () {
     if (passwordInput.type === "password") {
         passwordInput.type = "text";

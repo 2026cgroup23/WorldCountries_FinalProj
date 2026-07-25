@@ -10,7 +10,7 @@ const serverMessage = document.getElementById("serverMessage");
 const loginButton = document.getElementById("loginButton");
 const togglePasswordButton = document.getElementById("togglePassword");
 
-const apiUrl = "https://localhost:7296/api/Users/login";
+const apiUrl ="https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/Users/login";
 
 togglePasswordButton.addEventListener("click", function () {
     if (passwordInput.type === "password") {

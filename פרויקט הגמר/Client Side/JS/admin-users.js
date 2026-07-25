@@ -19,9 +19,11 @@ if (!isCurrentUserAdmin()) {
     window.location.replace("index.html");
 }
 
-const apiBaseUrl = "https://localhost:7296/api/Users";
+const apiBaseUrl =
+    "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/Users";
 
-const adminApiUrl = "https://localhost:7296/api/Admin";
+const adminApiUrl =
+    "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/Admin";
 
 let allUsers = [];
 let filteredUsers = [];

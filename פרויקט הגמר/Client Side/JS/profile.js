@@ -18,10 +18,10 @@ try {
 }
 
 const usersApiUrl =
-    "https://localhost:7296/api/Users";
+    "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/Users";
 
 const preferencesApiUrl =
-    "https://localhost:7296/api/Preferences";
+    "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/Preferences";
 
 const urlParams =
     new URLSearchParams(

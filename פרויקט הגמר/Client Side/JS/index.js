@@ -34,11 +34,10 @@ try {
 
 
 const usersApiUrl =
-    "https://localhost:7296/api/Users";
+    "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/Users";
 
 const sharesApiUrl =
-    "https://localhost:7296/api/Shares";
-
+    "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/Shares";
 const latestSharesLimit = 6;
 
 const greetingText =

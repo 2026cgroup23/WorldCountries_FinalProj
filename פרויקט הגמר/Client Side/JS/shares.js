@@ -27,13 +27,13 @@ try {
 }
 
 const sharesApiUrl =
-    "https://localhost:7296/api/Shares";
+    "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/Shares";
 
 const countriesApiUrl =
-    "https://localhost:7296/api/Countries";
+    "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/Countries";
 
 const usersApiUrl =
-    "https://localhost:7296/api/Users";
+    "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/Users";
 
 let shares = [];
 let countries = [];

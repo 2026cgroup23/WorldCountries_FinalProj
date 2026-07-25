@@ -33,13 +33,13 @@ try {
 }
 
 const countriesApiUrl =
-    "https://localhost:7296/api/Countries";
+    "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/Countries";
 
 const userCountryListsApiUrl =
-    "https://localhost:7296/api/UserCountryLists";
+    "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/UserCountryLists";
 
 const sharesApiUrl =
-    "https://localhost:7296/api/Shares";
+    "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/Shares";
 
 const urlParameters =
     new URLSearchParams(

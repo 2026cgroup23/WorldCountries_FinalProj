@@ -22,8 +22,11 @@ if (!currentUserString || isLoggedIn !== "true") {
     }
 }
 
-const countriesApiUrl = "https://localhost:7296/api/Countries";
-const quizGameApiUrl = "https://localhost:7296/api/QuizGame";
+const countriesApiUrl =
+    "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/Countries";
+
+const quizGameApiUrl =
+    "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/QuizGame";
 const BEST_KEY = "quizBest_clash";
 
 // ---- Difficulty settings ----

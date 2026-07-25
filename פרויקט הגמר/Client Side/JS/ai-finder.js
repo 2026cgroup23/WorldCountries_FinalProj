@@ -37,7 +37,7 @@ if (!currentUserString || isLoggedIn !== "true") {
     }
 }
 
-const countriesApiUrl = "https://localhost:7296/api/Countries";
+const countriesApiUrl ="https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/Countries";
 const MODEL_NAME = "Xenova/all-MiniLM-L6-v2";
 const RESULT_COUNT = 8;
 

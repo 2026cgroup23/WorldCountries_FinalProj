@@ -23,8 +23,11 @@ if (!currentUserString || isLoggedIn !== "true") {
     }
 }
 
-const countriesApiUrl = "https://localhost:7296/api/Countries";
-const userCountryListsApiUrl = "https://localhost:7296/api/UserCountryLists";
+const countriesApiUrl =
+    "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/Countries";
+
+const userCountryListsApiUrl =
+    "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/UserCountryLists";
 
 // Continent -> colour (English names as returned by the API).
 const CONTINENT_COLORS = {
