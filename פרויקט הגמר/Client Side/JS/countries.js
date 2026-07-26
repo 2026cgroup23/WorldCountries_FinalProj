@@ -25,9 +25,9 @@ try {
 }
 
 
-const countriesApiUrl = "https://localhost:7296/api/Countries";
+const countriesApiUrl = "https://Proj.ruppin.ac.il/cgroup23/test2/tar1/api/Countries";
 
-const preferencesApiUrl = "https://localhost:7296/api/Preferences";
+const preferencesApiUrl = "https://Proj.ruppin.ac.il/cgroup23/test2/tar1/api/Preferences";
 
 let countries = [];
 let continents = [];

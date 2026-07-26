@@ -21,7 +21,6 @@ if (!isCurrentUserAdmin()) {
 
 const apiBaseUrl =
     "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/Users";
-
 const adminApiUrl =
     "https://proj.ruppin.ac.il/cgroup23/test2/tar1/api/Admin";
 
